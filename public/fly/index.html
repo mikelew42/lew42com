@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="importmap">
+	{
+	  "imports": {
+	    "three": "/module/lib/three.js"
+	  }
+	}
+	</script>
+	<style>
+		body { overscroll-behavior: none; touch-action:none; }
+		.dragging { user-select: none; }
+		.stick { position: absolute; bottom: 0; top: 60%; z-index:1; left: 0; right: 0; height: 300px; background: rgba(0,0,0,0.1); width: 300px; left: calc(50% - 150px); border-radius: 100%; }
+		.circle { z-index: 999; border-radius: 100%; height: 100px; width: 100px; background: rgba(0,0,0,0.1); cursor: pointer; position: absolute; left: calc(50% - 50px); top: calc(50% - 50px); user-select: none;}
+		.vis1 { z-index: -1; position: absolute; width: 2px; background: black; height: 100%; left: calc(50% - 1px); }
+		.vis2 {z-index: -1;  position: absolute; height: 2px; background: black; width: 100%; top: calc(50% - 1px); }
+	</style>
+</head>
+<body>
+	<script type="module" src="index.js"></script>
+</body>
+</html>

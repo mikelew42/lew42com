@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* { box-sizing: border-box; }
+
+body { background: #ddd; font-family: Lato; margin: 0; padding: 0; }
+
+.body1 { padding: 1em; }
+
+.card {
+	padding: 1em;
+	background: white;
+}
+
+.pad1em { padding: 1em; }

@@ -1,0 +1,4 @@
+.test { background: white; max-width: 1000px; margin: 0 auto 1em; }
+.test > .name { cursor: pointer; background: #555; color: white; padding: 1em; }
+.test.ran > .container { padding: 2em; }
+.test.gray {background: #eee;}
