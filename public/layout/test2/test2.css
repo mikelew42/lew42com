@@ -1,0 +1,7 @@
+.test2 { padding: 1em; }
+.layout-preview { transform: scale(0.25); transform-origin: left top;
+}
+.layout-preview-inner { width: 400%; }
+
+.cols { display: flex; gap:1em; }
+.col { flex: 1; }

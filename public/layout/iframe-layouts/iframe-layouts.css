@@ -1,0 +1,9 @@
+.iframe-layouts { padding: 1em; }
+.iframe-preview { width: 400%; height: 1600px; transform: scale(0.25); transform-origin: left top; }
+
+.layout-preview { transform: scale(0.25); transform-origin: left top;
+}
+.layout-preview-inner { width: 400%; }
+
+.cols { display: flex; gap:1em; }
+.col { flex: 1; }
