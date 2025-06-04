@@ -77,10 +77,136 @@
 			]
 		},
 		{
+			"name": "directory-container-directory-container",
+			"path": "./",
+			"full": "directory-container-directory-container",
+			"type": "dir",
+			"children": [
+				{
+					"name": "directory-container-directory-container.js",
+					"path": "directory-container-directory-container",
+					"full": "directory-container-directory-container/directory-container-directory-container.js",
+					"type": "file"
+				}
+			]
+		},
+		{
 			"name": "directory.json",
 			"path": "./",
 			"full": "directory.json",
 			"type": "file"
+		},
+		{
+			"name": "fake",
+			"path": "./",
+			"full": "fake",
+			"type": "dir",
+			"children": [
+				{
+					"name": "a",
+					"path": "fake",
+					"full": "fake/a",
+					"type": "dir",
+					"children": [
+						{
+							"name": "a.page.js",
+							"path": "fake/a",
+							"full": "fake/a/a.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "default",
+					"path": "fake",
+					"full": "fake/default",
+					"type": "dir",
+					"children": [
+						{
+							"name": "another.page.js",
+							"path": "fake/default",
+							"full": "fake/default/another.page.js",
+							"type": "file"
+						},
+						{
+							"name": "default.page.js",
+							"path": "fake/default",
+							"full": "fake/default/default.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "fake.page.js",
+					"path": "fake",
+					"full": "fake/fake.page.js",
+					"type": "file"
+				},
+				{
+					"name": "one",
+					"path": "fake",
+					"full": "fake/one",
+					"type": "dir",
+					"children": [
+						{
+							"name": "a",
+							"path": "fake/one",
+							"full": "fake/one/a",
+							"type": "dir",
+							"children": [
+								{
+									"name": "a.page.js",
+									"path": "fake/one/a",
+									"full": "fake/one/a/a.page.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "b",
+							"path": "fake/one",
+							"full": "fake/one/b",
+							"type": "dir",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "test2.page.js",
+					"path": "fake",
+					"full": "fake/test2.page.js",
+					"type": "file"
+				},
+				{
+					"name": "two",
+					"path": "fake",
+					"full": "fake/two",
+					"type": "dir",
+					"children": [
+						{
+							"name": "a",
+							"path": "fake/two",
+							"full": "fake/two/a",
+							"type": "dir",
+							"children": [
+								{
+									"name": "a.page.js",
+									"path": "fake/two/a",
+									"full": "fake/two/a/a.page.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "b",
+							"path": "fake/two",
+							"full": "fake/two/b",
+							"type": "dir",
+							"children": []
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "fly",
@@ -115,50 +241,6 @@
 					"type": "dir"
 				},
 				{
-					"name": "App",
-					"path": "framework",
-					"full": "framework/App",
-					"type": "dir",
-					"children": [
-						{
-							"name": "App.js",
-							"path": "framework/App",
-							"full": "framework/App/App.js",
-							"type": "file"
-						},
-						{
-							"name": "fs.css",
-							"path": "framework/App",
-							"full": "framework/App/fs.css",
-							"type": "file"
-						},
-						{
-							"name": "FSView.js",
-							"path": "framework/App",
-							"full": "framework/App/FSView.js",
-							"type": "file"
-						},
-						{
-							"name": "HashRunner.js",
-							"path": "framework/App",
-							"full": "framework/App/HashRunner.js",
-							"type": "file"
-						},
-						{
-							"name": "index.html",
-							"path": "framework/App",
-							"full": "framework/App/index.html",
-							"type": "file"
-						},
-						{
-							"name": "index.js",
-							"path": "framework/App",
-							"full": "framework/App/index.js",
-							"type": "file"
-						}
-					]
-				},
-				{
 					"name": "app.dev.js",
 					"path": "framework",
 					"full": "framework/app.dev.js",
@@ -168,44 +250,6 @@
 					"name": "app.js",
 					"path": "framework",
 					"full": "framework/app.js",
-					"type": "file"
-				},
-				{
-					"name": "Base",
-					"path": "framework",
-					"full": "framework/Base",
-					"type": "dir",
-					"children": [
-						{
-							"name": "Base.js",
-							"path": "framework/Base",
-							"full": "framework/Base/Base.js",
-							"type": "file"
-						},
-						{
-							"name": "index.html",
-							"path": "framework/Base",
-							"full": "framework/Base/index.html",
-							"type": "file"
-						},
-						{
-							"name": "index.js",
-							"path": "framework/Base",
-							"full": "framework/Base/index.js",
-							"type": "file"
-						},
-						{
-							"name": "instantiate.md",
-							"path": "framework/Base",
-							"full": "framework/Base/instantiate.md",
-							"type": "file"
-						}
-					]
-				},
-				{
-					"name": "base.css",
-					"path": "framework",
-					"full": "framework/base.css",
 					"type": "file"
 				},
 				{
@@ -229,6 +273,114 @@
 					]
 				},
 				{
+					"name": "core",
+					"path": "framework",
+					"full": "framework/core",
+					"type": "dir",
+					"children": [
+						{
+							"name": "App",
+							"path": "framework/core",
+							"full": "framework/core/App",
+							"type": "dir",
+							"children": [
+								{
+									"name": "App.js",
+									"path": "framework/core/App",
+									"full": "framework/core/App/App.js",
+									"type": "file"
+								},
+								{
+									"name": "App.page.js",
+									"path": "framework/core/App",
+									"full": "framework/core/App/App.page.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "Base",
+							"path": "framework/core",
+							"full": "framework/core/Base",
+							"type": "dir",
+							"children": [
+								{
+									"name": "Base.js",
+									"path": "framework/core/Base",
+									"full": "framework/core/Base/Base.js",
+									"type": "file"
+								},
+								{
+									"name": "Base.page.js",
+									"path": "framework/core/Base",
+									"full": "framework/core/Base/Base.page.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "core.page.js",
+							"path": "framework/core",
+							"full": "framework/core/core.page.js",
+							"type": "file"
+						},
+						{
+							"name": "Events",
+							"path": "framework/core",
+							"full": "framework/core/Events",
+							"type": "dir",
+							"children": [
+								{
+									"name": "Events.js",
+									"path": "framework/core/Events",
+									"full": "framework/core/Events/Events.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "Test",
+							"path": "framework/core",
+							"full": "framework/core/Test",
+							"type": "dir",
+							"children": [
+								{
+									"name": "test.delete.css",
+									"path": "framework/core/Test",
+									"full": "framework/core/Test/test.delete.css",
+									"type": "file"
+								},
+								{
+									"name": "Test.js",
+									"path": "framework/core/Test",
+									"full": "framework/core/Test/Test.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "View",
+							"path": "framework/core",
+							"full": "framework/core/View",
+							"type": "dir",
+							"children": [
+								{
+									"name": "View.js",
+									"path": "framework/core/View",
+									"full": "framework/core/View/View.js",
+									"type": "file"
+								},
+								{
+									"name": "View.page.js",
+									"path": "framework/core/View",
+									"full": "framework/core/View/View.page.js",
+									"type": "file"
+								}
+							]
+						}
+					]
+				},
+				{
 					"name": "Dir",
 					"path": "framework",
 					"full": "framework/Dir",
@@ -243,16 +395,49 @@
 					]
 				},
 				{
-					"name": "Events",
+					"name": "directory.json",
 					"path": "framework",
-					"full": "framework/Events",
+					"full": "framework/directory.json",
+					"type": "file"
+				},
+				{
+					"name": "ext",
+					"path": "framework",
+					"full": "framework/ext",
 					"type": "dir",
 					"children": [
 						{
-							"name": "Events.js",
-							"path": "framework/Events",
-							"full": "framework/Events/Events.js",
-							"type": "file"
+							"name": "Directory",
+							"path": "framework/ext",
+							"full": "framework/ext/Directory",
+							"type": "dir",
+							"children": [
+								{
+									"name": "Directory.css",
+									"path": "framework/ext/Directory",
+									"full": "framework/ext/Directory/Directory.css",
+									"type": "file"
+								},
+								{
+									"name": "Directory.js",
+									"path": "framework/ext/Directory",
+									"full": "framework/ext/Directory/Directory.js",
+									"type": "file"
+								},
+								{
+									"name": "Directory.page.js",
+									"path": "framework/ext/Directory",
+									"full": "framework/ext/Directory/Directory.page.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "meh",
+							"path": "framework/ext",
+							"full": "framework/ext/meh",
+							"type": "dir",
+							"children": []
 						}
 					]
 				},
@@ -271,15 +456,21 @@
 					]
 				},
 				{
-					"name": "index.html",
+					"name": "framework.css",
 					"path": "framework",
-					"full": "framework/index.html",
+					"full": "framework/framework.css",
 					"type": "file"
 				},
 				{
-					"name": "index.js",
+					"name": "framework.page.js",
 					"path": "framework",
-					"full": "framework/index.js",
+					"full": "framework/framework.page.js",
+					"type": "file"
+				},
+				{
+					"name": "index.html",
+					"path": "framework",
+					"full": "framework/index.html",
 					"type": "file"
 				},
 				{
@@ -327,42 +518,24 @@
 					]
 				},
 				{
-					"name": "List",
-					"path": "framework",
-					"full": "framework/List",
-					"type": "dir",
-					"children": [
-						{
-							"name": "index.html",
-							"path": "framework/List",
-							"full": "framework/List/index.html",
-							"type": "file"
-						},
-						{
-							"name": "index.js",
-							"path": "framework/List",
-							"full": "framework/List/index.js",
-							"type": "file"
-						},
-						{
-							"name": "List.js",
-							"path": "framework/List",
-							"full": "framework/List/List.js",
-							"type": "file"
-						},
-						{
-							"name": "ListView.js",
-							"path": "framework/List",
-							"full": "framework/List/ListView.js",
-							"type": "file"
-						}
-					]
-				},
-				{
 					"name": "README.md",
 					"path": "framework",
 					"full": "framework/README.md",
 					"type": "file"
+				},
+				{
+					"name": "Router",
+					"path": "framework",
+					"full": "framework/Router",
+					"type": "dir",
+					"children": [
+						{
+							"name": "Router.js",
+							"path": "framework/Router",
+							"full": "framework/Router/Router.js",
+							"type": "file"
+						}
+					]
 				},
 				{
 					"name": "Socket",
@@ -374,26 +547,6 @@
 							"name": "Socket.js",
 							"path": "framework/Socket",
 							"full": "framework/Socket/Socket.js",
-							"type": "file"
-						}
-					]
-				},
-				{
-					"name": "Test",
-					"path": "framework",
-					"full": "framework/Test",
-					"type": "dir",
-					"children": [
-						{
-							"name": "test.css",
-							"path": "framework/Test",
-							"full": "framework/Test/test.css",
-							"type": "file"
-						},
-						{
-							"name": "Test.js",
-							"path": "framework/Test",
-							"full": "framework/Test/Test.js",
 							"type": "file"
 						}
 					]
@@ -417,55 +570,17 @@
 									"type": "file"
 								},
 								{
-									"name": "index.html",
+									"name": "Explorer.page.js",
 									"path": "framework/ux/Explorer",
-									"full": "framework/ux/Explorer/index.html",
-									"type": "file"
-								},
-								{
-									"name": "index.js",
-									"path": "framework/ux/Explorer",
-									"full": "framework/ux/Explorer/index.js",
+									"full": "framework/ux/Explorer/Explorer.page.js",
 									"type": "file"
 								}
 							]
 						},
 						{
-							"name": "index.html",
+							"name": "ux.page.js",
 							"path": "framework/ux",
-							"full": "framework/ux/index.html",
-							"type": "file"
-						},
-						{
-							"name": "index.js",
-							"path": "framework/ux",
-							"full": "framework/ux/index.js",
-							"type": "file"
-						}
-					]
-				},
-				{
-					"name": "View",
-					"path": "framework",
-					"full": "framework/View",
-					"type": "dir",
-					"children": [
-						{
-							"name": "index.html",
-							"path": "framework/View",
-							"full": "framework/View/index.html",
-							"type": "file"
-						},
-						{
-							"name": "index.js",
-							"path": "framework/View",
-							"full": "framework/View/index.js",
-							"type": "file"
-						},
-						{
-							"name": "View.js",
-							"path": "framework/View",
-							"full": "framework/View/View.js",
+							"full": "framework/ux/ux.page.js",
 							"type": "file"
 						}
 					]
@@ -473,15 +588,15 @@
 			]
 		},
 		{
-			"name": "index.html",
+			"name": "home.page.js",
 			"path": "./",
-			"full": "index.html",
+			"full": "home.page.js",
 			"type": "file"
 		},
 		{
-			"name": "index.js",
+			"name": "index.html",
 			"path": "./",
-			"full": "index.js",
+			"full": "index.html",
 			"type": "file"
 		},
 		{
@@ -593,6 +708,40 @@
 			"type": "dir",
 			"children": [
 				{
+					"name": "a",
+					"path": "test",
+					"full": "test/a",
+					"type": "dir",
+					"children": [
+						{
+							"name": "a.page.js",
+							"path": "test/a",
+							"full": "test/a/a.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "default",
+					"path": "test",
+					"full": "test/default",
+					"type": "dir",
+					"children": [
+						{
+							"name": "another.page.js",
+							"path": "test/default",
+							"full": "test/default/another.page.js",
+							"type": "file"
+						},
+						{
+							"name": "default.page.js",
+							"path": "test/default",
+							"full": "test/default/default.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "index.html",
 					"path": "test",
 					"full": "test/index.html",
@@ -603,8 +752,84 @@
 					"path": "test",
 					"full": "test/index.js",
 					"type": "file"
+				},
+				{
+					"name": "one",
+					"path": "test",
+					"full": "test/one",
+					"type": "dir",
+					"children": [
+						{
+							"name": "a",
+							"path": "test/one",
+							"full": "test/one/a",
+							"type": "dir",
+							"children": [
+								{
+									"name": "a.page.js",
+									"path": "test/one/a",
+									"full": "test/one/a/a.page.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "b",
+							"path": "test/one",
+							"full": "test/one/b",
+							"type": "dir",
+							"children": []
+						}
+					]
+				},
+				{
+					"name": "sub.page.js",
+					"path": "test",
+					"full": "test/sub.page.js",
+					"type": "file"
+				},
+				{
+					"name": "two",
+					"path": "test",
+					"full": "test/two",
+					"type": "dir",
+					"children": [
+						{
+							"name": "a",
+							"path": "test/two",
+							"full": "test/two/a",
+							"type": "dir",
+							"children": [
+								{
+									"name": "a.page.js",
+									"path": "test/two/a",
+									"full": "test/two/a/a.page.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "b",
+							"path": "test/two",
+							"full": "test/two/b",
+							"type": "dir",
+							"children": []
+						}
+					]
 				}
 			]
+		},
+		{
+			"name": "test.js",
+			"path": "./",
+			"full": "test.js",
+			"type": "file"
+		},
+		{
+			"name": "test.page.js",
+			"path": "./",
+			"full": "test.page.js",
+			"type": "file"
 		}
 	]
 }

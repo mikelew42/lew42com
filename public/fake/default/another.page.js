@@ -1,0 +1,1 @@
+console.log("hello from /test/default/another.page.js");

@@ -1,3 +1,3 @@
 export default {
-	directorize: true
+	directorize: "framework"
 }

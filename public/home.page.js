@@ -14,9 +14,25 @@ app.$main = el("main", {
             app.directory.container();
             
         } else {
-            app.directory.render();
+            
+            div.c("left", () => {
+                div.c("icon-item", () => {
+                    icon("format_paint");
+                    p("Work Hard");
+                });      
+                div.c("icon-item", () => {
+                    icon("games");
+                    p("Play Harder");
+                });
+                div.c("icon-item", () => {
+                    icon("bubble_chart");
+                    p("Find Meeming");
+                });
+    
+                app.directory.render();
+            });
             div.c("card", () =>{
-                h1("Test");
+                h1("Master of Layouts");
                 el("section", () => {
                     h2.c("icon-item", icon("format_paint"), "Work Hard");
                     p("Lorem ipsum dolor sit amet consectetur. Non pellentesque cum ipsum pretium nibh id elementum nunc sagittis. Id auctor neque donec ultrices lectus facilisis at vulputate. Nisl eget sapien sit tellus.");
@@ -33,11 +49,25 @@ app.$main = el("main", {
                 });
     
                 app.checklist("Burned out.", "Going crazy.", "Massive potential.", "About to give up.", "I need your help.");
+            
+                el("sidebar", "yo");
             });
 
         }
 
-    }
+        // new HashRunner();
+        // test("what does this look like", t => {
+        //     p("Don't worry, this is just a test");
+        // });
+    },
+    // right: el("sidebar", () => {
+    //     h1("this is a test");
+    //     h2("this is a test");
+    //     h3("this is a test");
+    //     p("this is a test");
+    //     div("this is a test");
+    // })
 });
 
 app.footer();
+// el("iframe").attr("src", "https://www.youtube.com/embed/l-5xLrhMeco/");

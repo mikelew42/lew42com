@@ -1,14 +1,14 @@
-import { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/module/App/App.js";
 // import * as THREE from "/module/lib/three.js";
 // import { OrbitControls } from '/three.js/examples/jsm/controls/OrbitControls.js';
 // import { GLTFLoader } from "/three.js/examples/jsm/loaders/GLTFLoader.js";
 
 import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-  import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
-  import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
 
+import { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js";
 window.THREE = THREE;
-const app = window.app = await new App().ready;
+// const app = window.app = await new App().ready; 
 
 // console.log(THREE);
 
