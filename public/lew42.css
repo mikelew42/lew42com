@@ -6,38 +6,17 @@
 	--bg: #42404B;
 }
 
-body { color: var(--bg); background: #ddd; font-family: Montserrat; display: flex; flex-direction: column;}
+body { color: var(--bg); background: #ddd; font-family: Montserrat; display: flex; }
 
-/* body.mobile { font-size: 14px; } */
 
-@media (min-width: 1333px) {
-    body {
-        font-size: 1.2vw;
-    }
-}
-
-@media (min-width: 1666px) {
-    body {
-        font-size: 20px;
-    }
-}
-
-p { line-height: 2;}
-
-h1 { font-size: 3em; margin-bottom: 1em; font-weight: 900;}
 
 header, footer { background: white; padding: 0.7em 1em 0.5em;  }
 header { background: white; border-bottom: 1px solid #ccc; }
 footer { background: #42404B; border-top: 1px solid #2a292e;}
-.logo { height: 24px; cursor:pointer; }
 
-
-main { display: flex; flex: 1; }
-main .center { flex: 1; padding: clamp(1em, 3%, 3em); display:flex; justify-content: center; align-items: flex-start;}
-main .center .card { padding: clamp(1em, 5%, 4em) clamp(2em, 6%, 5em); max-width: 1042px; flex: 5; }
 sidebar.right { background: white; padding: 1em; }
 
-.center .left { flex: 1; font-weight: 600; padding-top: 2em; min-width: 150px; max-width: 250px; }
+#main .left { flex: 1; font-weight: 600; padding-top: 2em; min-width: 150px; max-width: 250px; }
 
 section { margin-bottom: 3em; }
 
@@ -54,13 +33,3 @@ section { margin-bottom: 3em; }
 .icon-item { display: flex; align-items: center; margin-bottom: 1em; }
 .icon-item .icon { margin-right: 0.7em; }
 
-.sidenav { background: white;}
-
-/* bloody */
-.sidenav .logobar { display: flex; align-items: center; padding: 1.6em 3.2em 1.4em 1.7em; gap: 0.7em;  cursor: pointer; }
-.sidenav .logobar:hover { background: #eee; }
-.sidenav .logobar .title { flex: 1; font-weight: 700; }
-.sidenav .logobar .close {}
-
-.sidenav .nav .nav-item { text-decoration: none; font-weight: 500; color: var(--bg); padding: 0.7em 1.8em; display: block; }
-.sidenav .nav .nav-item:hover { background: #eee; }

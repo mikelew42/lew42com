@@ -1,5 +1,5 @@
 import { View, Base, Events, App, el, div, h1, h2, h3, p, is, icon, Test, test } from "/framework/core/App/App.js";
-import Socket from "/framework/Socket/Socket.js";
+import Socket from "/framework/ext/Socket/Socket.js";
 import Directory from "/framework/ext/Directory/Directory.js";
 
 
@@ -91,27 +91,21 @@ const app = window.app = new App({
 
     sidenav(){
         const app = this;
+        
+        var navstate = JSON.parse(localStorage.getItem("navstate"));
 
-    
-        // window.addEventListener('keydown', (e) => {
-        //     console.log('Key:', e.key, 'Ctrl:', e.ctrlKey, 'Focused:', document.activeElement);
-        //   });
-
-        // setInterval(() => {
-        //     console.log('Active element:', document.activeElement);
-        //   }, 500);
-          
+        if (navstate === null){
+            navstate = true;
+            localStorage.setItem("navstate", "true");
+        }
 
         window.addEventListener('keydown', (e) => {
-            // console.log('Key:', e.key, 'Ctrl:', e.ctrlKey, 'Focused:', document.activeElement);
             if (e.ctrlKey && e.key === '\\') {
-                // debugger;
-                // console.log('Ctrl + \\ pressed');
+                localStorage.setItem("navstate", JSON.stringify(!navstate));
                 app.$sidenav.toggle();
-                document.body.focus();  // hmm, focus issues after Ctrl + R reload
             }
         });
-        return this.$sidenav || (this.$sidenav = div.c("sidenav", {
+        this.$sidenav = div.c("sidenav", {
             logobar: div({
                 logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png"),
                 title: div("Lew42.com"),
@@ -123,17 +117,23 @@ const app = window.app = new App({
                 window.location = "/";
             }),
             content: () =>{
-                div.c("nav", () => {
-                    el.c("a", "nav-item", "Framework").attr("href", "/framework/");
-                    el.c("a", "nav-item", "Layout").attr("href", "/layout/");
-                    el.c("a", "nav-item", "Life").attr("href", "/life/");
-                    el.c("a", "nav-item", "Fly").attr("href", "/fly/");
-                    el.c("a", "nav-item", "Test").attr("href", "/test/");
-                });
+                // div.c("nav", () => {
+                //     el.c("a", "nav-item", "Framework").attr("href", "/framework/");
+                //     el.c("a", "nav-item", "Layout").attr("href", "/layout/");
+                //     el.c("a", "nav-item", "Life").attr("href", "/life/");
+                //     el.c("a", "nav-item", "Fly").attr("href", "/fly/");
+                //     el.c("a", "nav-item", "Test").attr("href", "/test/");
+                // });
 
                 this.directory.render();
             }
-        }));
+        });
+
+        if (navstate === false){
+            this.$sidenav.hide();
+        }
+
+        return this.$sidenav;
     }
 });
 
