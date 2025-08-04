@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #editor {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 1px solid #ccc;
+    font-family: monospace;
+    overflow: auto;
+    cursor: text;
+    white-space: pre-wrap;
+  }
+  #text-layer {
+    position: relative;
+    padding: 4px;
+    min-height: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  #caret {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: black;
+    animation: blink 1s step-start infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  textarea.hidden-input {
+    position: absolute;
+    opacity: 0;
+    resize: none;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: transparent;
+    caret-color: transparent;
+    width: 10px;
+    height: 20px;
+  }
+</style>
+</head>
+<body>
+<div id="editor" tabindex="0">
+  <div id="text-layer"></div>
+  <div id="caret"></div>
+  <textarea class="hidden-input" aria-label="hidden input"></textarea>
+</div>
+<script>
+const editor = document.getElementById('editor');
+const textLayer = document.getElementById('text-layer');
+const caret = document.getElementById('caret');
+const input = document.querySelector('.hidden-input');
+
+let text = '';
+let cursor = 0;
+
+function getCaretCoordinates() {
+  // We create a dummy span with the text up to cursor to measure caret position
+  const dummy = document.createElement('span');
+  dummy.style.visibility = 'hidden';
+  dummy.style.position = 'absolute';
+  dummy.style.whiteSpace = 'pre-wrap';
+  dummy.style.fontFamily = 'monospace';
+  dummy.textContent = text.slice(0, cursor) || '\u200b'; // zero width space if empty
+  document.body.appendChild(dummy);
+  const rect = dummy.getBoundingClientRect();
+  document.body.removeChild(dummy);
+  return {
+    left: rect.width + 4, // +4 for padding
+    top: 4 // simple single line for now
+  };
+}
+
+function render() {
+  textLayer.textContent = text;
+  const pos = getCaretCoordinates();
+  caret.style.left = pos.left + 'px';
+  caret.style.top = pos.top + 'px';
+  input.style.left = pos.left + 'px';
+  input.style.top = pos.top + 'px';
+  input.style.height = '20px';
+
+  console.log('Render:', {text, cursor, caretX: pos.left, caretY: pos.top});
+}
+
+editor.addEventListener('mousedown', e => {
+  console.log('Editor clicked');
+  input.focus();
+  e.preventDefault();
+});
+
+input.addEventListener('input', e => {
+  console.log('Input event:', input.value);
+  text = text.slice(0, cursor) + input.value + text.slice(cursor);
+  cursor += input.value.length;
+  input.value = '';
+  render();
+});
+
+input.addEventListener('keydown', e => {
+  console.log('Keydown:', e.key);
+  if (e.key === 'Backspace') {
+    if (cursor > 0) {
+      text = text.slice(0, cursor - 1) + text.slice(cursor);
+      cursor--;
+      e.preventDefault();
+      render();
+    }
+  } else if (e.key === 'ArrowLeft') {
+    cursor = Math.max(0, cursor - 1);
+    e.preventDefault();
+    render();
+  } else if (e.key === 'ArrowRight') {
+    cursor = Math.min(text.length, cursor + 1);
+    e.preventDefault();
+    render();
+  }
+});
+
+render();
+</script>
+</body>
+</html>

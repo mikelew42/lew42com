@@ -398,6 +398,142 @@
 									"type": "file"
 								},
 								{
+									"name": "component.json",
+									"path": "framework/ext/Component",
+									"full": "framework/ext/Component/component.json",
+									"type": "file"
+								},
+								{
+									"name": "Component.page.js",
+									"path": "framework/ext/Component",
+									"full": "framework/ext/Component/Component.page.js",
+									"type": "file"
+								},
+								{
+									"name": "deep",
+									"path": "framework/ext/Component",
+									"full": "framework/ext/Component/deep",
+									"type": "dir",
+									"children": [
+										{
+											"name": "5",
+											"path": "framework/ext/Component/deep",
+											"full": "framework/ext/Component/deep/5",
+											"type": "dir",
+											"children": [
+												{
+													"name": "deep.json",
+													"path": "framework/ext/Component/deep/5",
+													"full": "framework/ext/Component/deep/5/deep.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "6",
+											"path": "framework/ext/Component/deep",
+											"full": "framework/ext/Component/deep/6",
+											"type": "dir",
+											"children": [
+												{
+													"name": "1",
+													"path": "framework/ext/Component/deep/6",
+													"full": "framework/ext/Component/deep/6/1",
+													"type": "dir",
+													"children": [
+														{
+															"name": "deep.json",
+															"path": "framework/ext/Component/deep/6/1",
+															"full": "framework/ext/Component/deep/6/1/deep.json",
+															"type": "file"
+														}
+													]
+												},
+												{
+													"name": "2",
+													"path": "framework/ext/Component/deep/6",
+													"full": "framework/ext/Component/deep/6/2",
+													"type": "dir",
+													"children": [
+														{
+															"name": "deep.json",
+															"path": "framework/ext/Component/deep/6/2",
+															"full": "framework/ext/Component/deep/6/2/deep.json",
+															"type": "file"
+														}
+													]
+												},
+												{
+													"name": "3",
+													"path": "framework/ext/Component/deep/6",
+													"full": "framework/ext/Component/deep/6/3",
+													"type": "dir",
+													"children": [
+														{
+															"name": "deep.json",
+															"path": "framework/ext/Component/deep/6/3",
+															"full": "framework/ext/Component/deep/6/3/deep.json",
+															"type": "file"
+														}
+													]
+												},
+												{
+													"name": "deep.json",
+													"path": "framework/ext/Component/deep/6",
+													"full": "framework/ext/Component/deep/6/deep.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "7",
+											"path": "framework/ext/Component/deep",
+											"full": "framework/ext/Component/deep/7",
+											"type": "dir",
+											"children": [
+												{
+													"name": "deep.json",
+													"path": "framework/ext/Component/deep/7",
+													"full": "framework/ext/Component/deep/7/deep.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "8",
+											"path": "framework/ext/Component/deep",
+											"full": "framework/ext/Component/deep/8",
+											"type": "dir",
+											"children": [
+												{
+													"name": "deep.json",
+													"path": "framework/ext/Component/deep/8",
+													"full": "framework/ext/Component/deep/8/deep.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "deep.json",
+											"path": "framework/ext/Component/deep",
+											"full": "framework/ext/Component/deep/deep.json",
+											"type": "file"
+										}
+									]
+								},
+								{
+									"name": "Deep.js",
+									"path": "framework/ext/Component",
+									"full": "framework/ext/Component/Deep.js",
+									"type": "file"
+								},
+								{
+									"name": "Deep.page.js",
+									"path": "framework/ext/Component",
+									"full": "framework/ext/Component/Deep.page.js",
+									"type": "file"
+								},
+								{
 									"name": "DirComponent.js",
 									"path": "framework/ext/Component",
 									"full": "framework/ext/Component/DirComponent.js",
@@ -462,6 +598,18 @@
 									"type": "file"
 								},
 								{
+									"name": "Directory3.js",
+									"path": "framework/ext/Directory",
+									"full": "framework/ext/Directory/Directory3.js",
+									"type": "file"
+								},
+								{
+									"name": "Directory3.page.js",
+									"path": "framework/ext/Directory",
+									"full": "framework/ext/Directory/Directory3.page.js",
+									"type": "file"
+								},
+								{
 									"name": "File.js",
 									"path": "framework/ext/Directory",
 									"full": "framework/ext/Directory/File.js",
@@ -477,6 +625,12 @@
 									"name": "test.page.js",
 									"path": "framework/ext/Directory",
 									"full": "framework/ext/Directory/test.page.js",
+									"type": "file"
+								},
+								{
+									"name": "test2.page.js",
+									"path": "framework/ext/Directory",
+									"full": "framework/ext/Directory/test2.page.js",
 									"type": "file"
 								}
 							]
@@ -531,6 +685,46 @@
 									"name": "List.js",
 									"path": "framework/ext/List",
 									"full": "framework/ext/List/List.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "Note",
+							"path": "framework/ext",
+							"full": "framework/ext/Note",
+							"type": "dir",
+							"children": [
+								{
+									"name": "Note.js",
+									"path": "framework/ext/Note",
+									"full": "framework/ext/Note/Note.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "Router",
+							"path": "framework/ext",
+							"full": "framework/ext/Router",
+							"type": "dir",
+							"children": [
+								{
+									"name": "index.html",
+									"path": "framework/ext/Router",
+									"full": "framework/ext/Router/index.html",
+									"type": "file"
+								},
+								{
+									"name": "Router.js",
+									"path": "framework/ext/Router",
+									"full": "framework/ext/Router/Router.js",
+									"type": "file"
+								},
+								{
+									"name": "Router.page.js",
+									"path": "framework/ext/Router",
+									"full": "framework/ext/Router/Router.page.js",
 									"type": "file"
 								}
 							]
@@ -649,6 +843,12 @@
 							"name": "underscore.js",
 							"path": "framework/lib",
 							"full": "framework/lib/underscore.js",
+							"type": "file"
+						},
+						{
+							"name": "util.js",
+							"path": "framework/lib",
+							"full": "framework/lib/util.js",
 							"type": "file"
 						}
 					]
@@ -862,6 +1062,38 @@
 					]
 				},
 				{
+					"name": "editor.html",
+					"path": "test",
+					"full": "test/editor.html",
+					"type": "file"
+				},
+				{
+					"name": "layout",
+					"path": "test",
+					"full": "test/layout",
+					"type": "dir",
+					"children": [
+						{
+							"name": "layout.json",
+							"path": "test/layout",
+							"full": "test/layout/layout.json",
+							"type": "file"
+						},
+						{
+							"name": "layout.page.js",
+							"path": "test/layout",
+							"full": "test/layout/layout.page.js",
+							"type": "file"
+						},
+						{
+							"name": "vertical_align.page.js",
+							"path": "test/layout",
+							"full": "test/layout/vertical_align.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "one",
 					"path": "test",
 					"full": "test/one",
@@ -911,6 +1143,158 @@
 					"type": "dir",
 					"children": [
 						{
+							"name": "component.json",
+							"path": "test/saving",
+							"full": "test/saving/component.json",
+							"type": "file"
+						},
+						{
+							"name": "notes",
+							"path": "test/saving",
+							"full": "test/saving/notes",
+							"type": "dir",
+							"children": [
+								{
+									"name": "1",
+									"path": "test/saving/notes",
+									"full": "test/saving/notes/1",
+									"type": "dir",
+									"children": [
+										{
+											"name": "1",
+											"path": "test/saving/notes/1",
+											"full": "test/saving/notes/1/1",
+											"type": "dir",
+											"children": [
+												{
+													"name": "2",
+													"path": "test/saving/notes/1/1",
+													"full": "test/saving/notes/1/1/2",
+													"type": "dir",
+													"children": [
+														{
+															"name": "note.json",
+															"path": "test/saving/notes/1/1/2",
+															"full": "test/saving/notes/1/1/2/note.json",
+															"type": "file"
+														}
+													]
+												},
+												{
+													"name": "3",
+													"path": "test/saving/notes/1/1",
+													"full": "test/saving/notes/1/1/3",
+													"type": "dir",
+													"children": [
+														{
+															"name": "note.json",
+															"path": "test/saving/notes/1/1/3",
+															"full": "test/saving/notes/1/1/3/note.json",
+															"type": "file"
+														}
+													]
+												},
+												{
+													"name": "4",
+													"path": "test/saving/notes/1/1",
+													"full": "test/saving/notes/1/1/4",
+													"type": "dir",
+													"children": [
+														{
+															"name": "note.json",
+															"path": "test/saving/notes/1/1/4",
+															"full": "test/saving/notes/1/1/4/note.json",
+															"type": "file"
+														}
+													]
+												},
+												{
+													"name": "note.json",
+													"path": "test/saving/notes/1/1",
+													"full": "test/saving/notes/1/1/note.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "note.json",
+											"path": "test/saving/notes/1",
+											"full": "test/saving/notes/1/note.json",
+											"type": "file"
+										}
+									]
+								},
+								{
+									"name": "2",
+									"path": "test/saving/notes",
+									"full": "test/saving/notes/2",
+									"type": "dir",
+									"children": [
+										{
+											"name": "1",
+											"path": "test/saving/notes/2",
+											"full": "test/saving/notes/2/1",
+											"type": "dir",
+											"children": [
+												{
+													"name": "note.json",
+													"path": "test/saving/notes/2/1",
+													"full": "test/saving/notes/2/1/note.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "2",
+											"path": "test/saving/notes/2",
+											"full": "test/saving/notes/2/2",
+											"type": "dir",
+											"children": [
+												{
+													"name": "note.json",
+													"path": "test/saving/notes/2/2",
+													"full": "test/saving/notes/2/2/note.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "3",
+											"path": "test/saving/notes/2",
+											"full": "test/saving/notes/2/3",
+											"type": "dir",
+											"children": [
+												{
+													"name": "note.json",
+													"path": "test/saving/notes/2/3",
+													"full": "test/saving/notes/2/3/note.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "note.json",
+											"path": "test/saving/notes/2",
+											"full": "test/saving/notes/2/note.json",
+											"type": "file"
+										}
+									]
+								},
+								{
+									"name": "note.json",
+									"path": "test/saving/notes",
+									"full": "test/saving/notes/note.json",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "notesnote.json",
+							"path": "test/saving",
+							"full": "test/saving/notesnote.json",
+							"type": "file"
+						},
+						{
 							"name": "saving.page.js",
 							"path": "test/saving",
 							"full": "test/saving/saving.page.js",
@@ -921,7 +1305,20 @@
 							"path": "test/saving",
 							"full": "test/saving/test2",
 							"type": "dir",
-							"children": []
+							"children": [
+								{
+									"name": "test.ext",
+									"path": "test/saving/test2",
+									"full": "test/saving/test2/test.ext",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "thing.json",
+							"path": "test/saving",
+							"full": "test/saving/thing.json",
+							"type": "file"
 						}
 					]
 				},
@@ -998,6 +1395,13 @@
 			"name": "test2",
 			"path": "./",
 			"full": "test2",
+			"type": "dir",
+			"children": []
+		},
+		{
+			"name": "undefined",
+			"path": "./",
+			"full": "undefined",
 			"type": "dir",
 			"children": []
 		}

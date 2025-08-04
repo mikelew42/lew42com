@@ -3,7 +3,8 @@ import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js"
 app.sidenav();
 
 app.$main = el("main", main => {
-
+    
+    app.$main = main; // otherwise it's not available in the loaded script
     main.attr("id", "main");
 
     if (window.location.hash){

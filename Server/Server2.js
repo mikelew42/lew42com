@@ -31,7 +31,41 @@ export default class Server extends Base {
 	initialize_express_app(){
 		this.express = express;
 		this.express_app = express();
-		this.express_app.use(express.static("public"));
+		this.express_app.use(express.static("public", { redirect: false }));
+        this.express_app.use((req, res, next) => {
+            console.log("req.path", req.path);
+
+            // If this ends in ".ext", let it 404
+            if (/\.[a-zA-Z0-9]+$/.test(req.path)) {
+                return res.status(404).end();
+            }
+
+            var url;
+            // /one/two/  ->  /one/two/two.page.js
+            if (req.path.endsWith("/")){
+                const parts = req.path.split("/").filter(Boolean); // ["one", "two"]
+                const name = parts[parts.length - 1]; // "two"
+                url = req.path + name + ".page.js"; // "/one/two/two.page.js"
+
+            // /one/two  ->  /one/two.page.js
+            } else {
+                url = req.path + ".page.js";
+            }
+
+            return res.send(
+`<!DOCTYPE html>
+    <html>
+        <head>
+            <script type="module">
+                import { el, div } from "/framework/app.dev.js";
+                div("test");
+            </script>
+            <script type="module" src="${url}"></script>
+        </head>
+        <body></body>
+</html>`);
+            
+        });
 	}
 
 
@@ -61,7 +95,7 @@ export default class Server extends Base {
 		
 		this.watcher = chokidar.watch("public", {
 			ignored: (path, stats) => {
-				if (stats && stats.isDirectory()) return false; // don't ignore directories
+				if (stats && stats.isDirectory()) return false; // ignore directories
 				return path.endsWith(".json") || path.includes(".git") || path.includes("node_modules");
 			},
 			ignoreInitial: true
@@ -72,9 +106,9 @@ export default class Server extends Base {
 		// });
 
 		this.watcher.on("add", this.update_framework_directories.bind(this));
-		this.watcher.on("addDir", this.update_framework_directories.bind(this));
+		// this.watcher.on("addDir", this.update_framework_directories.bind(this));
 		this.watcher.on("unlink", this.update_framework_directories.bind(this));
-		this.watcher.on("unlinkDir", this.update_framework_directories.bind(this));
+		// this.watcher.on("unlinkDir", this.update_framework_directories.bind(this));
 		// this.watcher.on("all", (event, path) => {
 		// 	console.log("all", event, path);
 		// });
@@ -82,7 +116,7 @@ export default class Server extends Base {
 		this.update_framework_directories("initial");
 	}
 
-		save(){
+	save(){
 		if (!this.saving)
 			this.saving = setTimeout(this.send, 0);
 	}
@@ -104,7 +138,7 @@ export default class Server extends Base {
 				fs.writeFileSync("./public/directory.json", JSON.stringify({ files: this.build_dir("./public/") }, null, "\t"));
 				fs.writeFileSync("./public/framework/directory.json", JSON.stringify({ files: this.build_dir("./public/framework/") }, null, "\t"));
 				// if (!e.includes("notes")){
-				// 	this.socket_server.changed(e);
+					this.socket_server.changed(e);
 				// }
 				this.rebuilding = false;
 			}, 0);

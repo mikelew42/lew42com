@@ -40,9 +40,18 @@ export default class SocketServer extends Base {
 		this.watcher = chokidar.watch([ 
 			"./",
 			"!**/*.json",
-			"!**/.git", 
-			this.server.dirname + "/../module/" ]);
+			"!**/.git" 
+		]);
 		
+		this.watcher = chokidar.watch("public", {
+			ignored: (path, stats) => {
+				if (stats && stats.isDirectory()) return false; // don't ignore directories
+				return path.endsWith(".json") || path.includes(".git") || 
+					path.includes("node_modules") || path.includes("notes");
+			},
+			ignoreInitial: true
+		});
+
 		this.watcher.on("change", this.changed.bind(this));
 
 		this.sockets = [];
@@ -80,8 +89,10 @@ class Socket extends Base {
 
 		// this.rpc("log", "connected to server");
 
-		const thing = new ServerThing();
-		thing.thing();
+		// const thing = new ServerThing();
+		// thing.thing();
+
+		// console.log("SOCKET szzzzzdfyy");
 	}
 
 	send(obj){
@@ -107,7 +118,7 @@ class Socket extends Base {
 	}
 
 	write(file, data){
-		fs.writeFile(toRelativePath(file), data, err => {
+		fs.writeFile(path.resolve("./public/", toRelativePath(file)), data, err => {
 			if (err) console.error(err);
 			else console.log("File: ", file, " written successfully.");
 		});
@@ -152,6 +163,17 @@ class Socket extends Base {
 
 	editor(contents){
 		fs.writeFileSync("./testeditor", contents);
+	}
+
+	rm(dir){
+		dir = path.resolve("./public/", toRelativePath(dir));
+		try {
+			fs.rmSync(dir, { recursive: true });
+			this.response({ success: true });
+		} catch (e) {
+			console.error("Error removing directory:", e);
+			this.response({ success: false, error: e.message });
+		}
 	}
 
 }

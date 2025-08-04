@@ -18,7 +18,7 @@ const app = window.app = new App({
 
     initialize_socket(){
         if (window.location.hostname == "localhost"){
-            this.socket = new Socket();
+            this.socket = Socket.singleton();
         } else {
             this.socket = { ready: Promise.resolve() };
         }
