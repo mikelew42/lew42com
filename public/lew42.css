@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap'); */
 @import url("/framework/framework.css");
 
 :root {
@@ -6,13 +6,13 @@
 	--bg: #42404B;
 }
 
-body { color: var(--bg); background: #ddd; font-family: Montserrat; display: flex; }
+body { color: var(--bg); background: #ddd; font-family: Montserrat; }
 
 
 
 header, footer { background: white; padding: 0.7em 1em 0.5em;  }
 header { background: white; border-bottom: 1px solid #ccc; }
-footer { background: #42404B; border-top: 1px solid #2a292e;}
+footer { background: var(--bg); border-top: 1px solid #2a292e;}
 
 sidebar.right { background: white; padding: 1em; }
 
@@ -33,3 +33,5 @@ section { margin-bottom: 3em; }
 .icon-item { display: flex; align-items: center; margin-bottom: 1em; }
 .icon-item .icon { margin-right: 0.7em; }
 
+
+.page-home { display: flex; }

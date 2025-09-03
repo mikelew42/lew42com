@@ -1,0 +1,1 @@
+console.log("hello from sub2.page.js");

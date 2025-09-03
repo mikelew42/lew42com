@@ -534,6 +534,20 @@
 									"type": "file"
 								},
 								{
+									"name": "Deepdeep",
+									"path": "framework/ext/Component",
+									"full": "framework/ext/Component/Deepdeep",
+									"type": "dir",
+									"children": [
+										{
+											"name": "deep.json",
+											"path": "framework/ext/Component/Deepdeep",
+											"full": "framework/ext/Component/Deepdeep/deep.json",
+											"type": "file"
+										}
+									]
+								},
+								{
 									"name": "DirComponent.js",
 									"path": "framework/ext/Component",
 									"full": "framework/ext/Component/DirComponent.js",
@@ -662,6 +676,44 @@
 							]
 						},
 						{
+							"name": "Draggable",
+							"path": "framework/ext",
+							"full": "framework/ext/Draggable",
+							"type": "dir",
+							"children": [
+								{
+									"name": "Draggable.js",
+									"path": "framework/ext/Draggable",
+									"full": "framework/ext/Draggable/Draggable.js",
+									"type": "file"
+								},
+								{
+									"name": "Draggable.page.js",
+									"path": "framework/ext/Draggable",
+									"full": "framework/ext/Draggable/Draggable.page.js",
+									"type": "file"
+								},
+								{
+									"name": "Movable.js",
+									"path": "framework/ext/Draggable",
+									"full": "framework/ext/Draggable/Movable.js",
+									"type": "file"
+								},
+								{
+									"name": "Previewable.js",
+									"path": "framework/ext/Draggable",
+									"full": "framework/ext/Draggable/Previewable.js",
+									"type": "file"
+								},
+								{
+									"name": "Sortable.js",
+									"path": "framework/ext/Draggable",
+									"full": "framework/ext/Draggable/Sortable.js",
+									"type": "file"
+								}
+							]
+						},
+						{
 							"name": "File",
 							"path": "framework/ext",
 							"full": "framework/ext/File",
@@ -671,6 +723,56 @@
 									"name": "File.js",
 									"path": "framework/ext/File",
 									"full": "framework/ext/File/File.js",
+									"type": "file"
+								},
+								{
+									"name": "File.page.js",
+									"path": "framework/ext/File",
+									"full": "framework/ext/File/File.page.js",
+									"type": "file"
+								},
+								{
+									"name": "File2.js",
+									"path": "framework/ext/File",
+									"full": "framework/ext/File/File2.js",
+									"type": "file"
+								},
+								{
+									"name": "test1.ext",
+									"path": "framework/ext/File",
+									"full": "framework/ext/File/test1.ext",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "HashRouter",
+							"path": "framework/ext",
+							"full": "framework/ext/HashRouter",
+							"type": "dir",
+							"children": [
+								{
+									"name": "HashRouter.js",
+									"path": "framework/ext/HashRouter",
+									"full": "framework/ext/HashRouter/HashRouter.js",
+									"type": "file"
+								},
+								{
+									"name": "HashRouter.page.js",
+									"path": "framework/ext/HashRouter",
+									"full": "framework/ext/HashRouter/HashRouter.page.js",
+									"type": "file"
+								},
+								{
+									"name": "HashTabs.css",
+									"path": "framework/ext/HashRouter",
+									"full": "framework/ext/HashRouter/HashTabs.css",
+									"type": "file"
+								},
+								{
+									"name": "HashTabs.js",
+									"path": "framework/ext/HashRouter",
+									"full": "framework/ext/HashRouter/HashTabs.js",
 									"type": "file"
 								}
 							]
@@ -686,6 +788,174 @@
 									"path": "framework/ext/List",
 									"full": "framework/ext/List/List.js",
 									"type": "file"
+								},
+								{
+									"name": "List.page.js",
+									"path": "framework/ext/List",
+									"full": "framework/ext/List/List.page.js",
+									"type": "file"
+								},
+								{
+									"name": "List.View.js",
+									"path": "framework/ext/List",
+									"full": "framework/ext/List/List.View.js",
+									"type": "file"
+								},
+								{
+									"name": "styles.css",
+									"path": "framework/ext/List",
+									"full": "framework/ext/List/styles.css",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "Module",
+							"path": "framework/ext",
+							"full": "framework/ext/Module",
+							"type": "dir",
+							"children": [
+								{
+									"name": "draggable.js",
+									"path": "framework/ext/Module",
+									"full": "framework/ext/Module/draggable.js",
+									"type": "file"
+								},
+								{
+									"name": "mod",
+									"path": "framework/ext/Module",
+									"full": "framework/ext/Module/mod",
+									"type": "dir",
+									"children": [
+										{
+											"name": "10",
+											"path": "framework/ext/Module/mod",
+											"full": "framework/ext/Module/mod/10",
+											"type": "dir",
+											"children": [
+												{
+													"name": "module.json",
+													"path": "framework/ext/Module/mod/10",
+													"full": "framework/ext/Module/mod/10/module.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "11",
+											"path": "framework/ext/Module/mod",
+											"full": "framework/ext/Module/mod/11",
+											"type": "dir",
+											"children": [
+												{
+													"name": "module.json",
+													"path": "framework/ext/Module/mod/11",
+													"full": "framework/ext/Module/mod/11/module.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "12",
+											"path": "framework/ext/Module/mod",
+											"full": "framework/ext/Module/mod/12",
+											"type": "dir",
+											"children": [
+												{
+													"name": "module.json",
+													"path": "framework/ext/Module/mod/12",
+													"full": "framework/ext/Module/mod/12/module.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "7",
+											"path": "framework/ext/Module/mod",
+											"full": "framework/ext/Module/mod/7",
+											"type": "dir",
+											"children": [
+												{
+													"name": "module.json",
+													"path": "framework/ext/Module/mod/7",
+													"full": "framework/ext/Module/mod/7/module.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "8",
+											"path": "framework/ext/Module/mod",
+											"full": "framework/ext/Module/mod/8",
+											"type": "dir",
+											"children": [
+												{
+													"name": "1",
+													"path": "framework/ext/Module/mod/8",
+													"full": "framework/ext/Module/mod/8/1",
+													"type": "dir",
+													"children": [
+														{
+															"name": "module.json",
+															"path": "framework/ext/Module/mod/8/1",
+															"full": "framework/ext/Module/mod/8/1/module.json",
+															"type": "file"
+														}
+													]
+												},
+												{
+													"name": "module.json",
+													"path": "framework/ext/Module/mod/8",
+													"full": "framework/ext/Module/mod/8/module.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "9",
+											"path": "framework/ext/Module/mod",
+											"full": "framework/ext/Module/mod/9",
+											"type": "dir",
+											"children": [
+												{
+													"name": "module.json",
+													"path": "framework/ext/Module/mod/9",
+													"full": "framework/ext/Module/mod/9/module.json",
+													"type": "file"
+												}
+											]
+										},
+										{
+											"name": "module.json",
+											"path": "framework/ext/Module/mod",
+											"full": "framework/ext/Module/mod/module.json",
+											"type": "file"
+										}
+									]
+								},
+								{
+									"name": "Module.js",
+									"path": "framework/ext/Module",
+									"full": "framework/ext/Module/Module.js",
+									"type": "file"
+								},
+								{
+									"name": "Module.page.js",
+									"path": "framework/ext/Module",
+									"full": "framework/ext/Module/Module.page.js",
+									"type": "file"
+								},
+								{
+									"name": "module.styles.css",
+									"path": "framework/ext/Module",
+									"full": "framework/ext/Module/module.styles.css",
+									"type": "file"
+								},
+								{
+									"name": "Module0.js",
+									"path": "framework/ext/Module",
+									"full": "framework/ext/Module/Module0.js",
+									"type": "file"
 								}
 							]
 						},
@@ -699,6 +969,26 @@
 									"name": "Note.js",
 									"path": "framework/ext/Note",
 									"full": "framework/ext/Note/Note.js",
+									"type": "file"
+								}
+							]
+						},
+						{
+							"name": "Page",
+							"path": "framework/ext",
+							"full": "framework/ext/Page",
+							"type": "dir",
+							"children": [
+								{
+									"name": "Page.js",
+									"path": "framework/ext/Page",
+									"full": "framework/ext/Page/Page.js",
+									"type": "file"
+								},
+								{
+									"name": "Page.page.js",
+									"path": "framework/ext/Page",
+									"full": "framework/ext/Page/Page.page.js",
 									"type": "file"
 								}
 							]
@@ -886,6 +1176,26 @@
 							]
 						},
 						{
+							"name": "Tabs",
+							"path": "framework/ux",
+							"full": "framework/ux/Tabs",
+							"type": "dir",
+							"children": [
+								{
+									"name": "Tabs.css",
+									"path": "framework/ux/Tabs",
+									"full": "framework/ux/Tabs/Tabs.css",
+									"type": "file"
+								},
+								{
+									"name": "Tabs.js",
+									"path": "framework/ux/Tabs",
+									"full": "framework/ux/Tabs/Tabs.js",
+									"type": "file"
+								}
+							]
+						},
+						{
 							"name": "ux.page.js",
 							"path": "framework/ux",
 							"full": "framework/ux/ux.page.js",
@@ -978,6 +1288,12 @@
 			]
 		},
 		{
+			"name": "layout.json",
+			"path": "./",
+			"full": "layout.json",
+			"type": "file"
+		},
+		{
 			"name": "lew42.css",
 			"path": "./",
 			"full": "lew42.css",
@@ -1042,6 +1358,46 @@
 					]
 				},
 				{
+					"name": "bootstrap",
+					"path": "test",
+					"full": "test/bootstrap",
+					"type": "dir",
+					"children": [
+						{
+							"name": "index.html",
+							"path": "test/bootstrap",
+							"full": "test/bootstrap/index.html",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "containers",
+					"path": "test",
+					"full": "test/containers",
+					"type": "dir",
+					"children": [
+						{
+							"name": "2.page.js",
+							"path": "test/containers",
+							"full": "test/containers/2.page.js",
+							"type": "file"
+						},
+						{
+							"name": "containers.old.page.js",
+							"path": "test/containers",
+							"full": "test/containers/containers.old.page.js",
+							"type": "file"
+						},
+						{
+							"name": "containers.page.js",
+							"path": "test/containers",
+							"full": "test/containers/containers.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "default",
 					"path": "test",
 					"full": "test/default",
@@ -1062,10 +1418,74 @@
 					]
 				},
 				{
+					"name": "drag",
+					"path": "test",
+					"full": "test/drag",
+					"type": "dir",
+					"children": [
+						{
+							"name": "drag.page.js",
+							"path": "test/drag",
+							"full": "test/drag/drag.page.js",
+							"type": "file"
+						},
+						{
+							"name": "List.js",
+							"path": "test/drag",
+							"full": "test/drag/List.js",
+							"type": "file"
+						},
+						{
+							"name": "List0.js",
+							"path": "test/drag",
+							"full": "test/drag/List0.js",
+							"type": "file"
+						},
+						{
+							"name": "List1.js",
+							"path": "test/drag",
+							"full": "test/drag/List1.js",
+							"type": "file"
+						},
+						{
+							"name": "List2.js",
+							"path": "test/drag",
+							"full": "test/drag/List2.js",
+							"type": "file"
+						},
+						{
+							"name": "List3.js",
+							"path": "test/drag",
+							"full": "test/drag/List3.js",
+							"type": "file"
+						},
+						{
+							"name": "styles.css",
+							"path": "test/drag",
+							"full": "test/drag/styles.css",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "editor.html",
 					"path": "test",
 					"full": "test/editor.html",
 					"type": "file"
+				},
+				{
+					"name": "flex",
+					"path": "test",
+					"full": "test/flex",
+					"type": "dir",
+					"children": [
+						{
+							"name": "flex.page.js",
+							"path": "test/flex",
+							"full": "test/flex/flex.page.js",
+							"type": "file"
+						}
+					]
 				},
 				{
 					"name": "layout",
@@ -1089,6 +1509,53 @@
 							"name": "vertical_align.page.js",
 							"path": "test/layout",
 							"full": "test/layout/vertical_align.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"path": "test",
+					"full": "test/list",
+					"type": "dir",
+					"children": []
+				},
+				{
+					"name": "mobile",
+					"path": "test",
+					"full": "test/mobile",
+					"type": "dir",
+					"children": [
+						{
+							"name": "cameras.page.js",
+							"path": "test/mobile",
+							"full": "test/mobile/cameras.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "nav",
+					"path": "test",
+					"full": "test/nav",
+					"type": "dir",
+					"children": [
+						{
+							"name": "Page.class.js",
+							"path": "test/nav",
+							"full": "test/nav/Page.class.js",
+							"type": "file"
+						},
+						{
+							"name": "page.js",
+							"path": "test/nav",
+							"full": "test/nav/page.js",
+							"type": "file"
+						},
+						{
+							"name": "sub.page.js",
+							"path": "test/nav",
+							"full": "test/nav/sub.page.js",
 							"type": "file"
 						}
 					]
@@ -1119,6 +1586,40 @@
 							"full": "test/one/b",
 							"type": "dir",
 							"children": []
+						}
+					]
+				},
+				{
+					"name": "page",
+					"path": "test",
+					"full": "test/page",
+					"type": "dir",
+					"children": [
+						{
+							"name": "fake.page.js",
+							"path": "test/page",
+							"full": "test/page/fake.page.js",
+							"type": "file"
+						},
+						{
+							"name": "page.js",
+							"path": "test/page",
+							"full": "test/page/page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "promises",
+					"path": "test",
+					"full": "test/promises",
+					"type": "dir",
+					"children": [
+						{
+							"name": "thenable.page.js",
+							"path": "test/promises",
+							"full": "test/promises/thenable.page.js",
+							"type": "file"
 						}
 					]
 				},
@@ -1323,6 +1824,26 @@
 					]
 				},
 				{
+					"name": "scroll",
+					"path": "test",
+					"full": "test/scroll",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/scroll",
+							"full": "test/scroll/page.js",
+							"type": "file"
+						},
+						{
+							"name": "scroll.html",
+							"path": "test/scroll",
+							"full": "test/scroll/scroll.html",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "socket",
 					"path": "test",
 					"full": "test/socket",
@@ -1337,16 +1858,70 @@
 					]
 				},
 				{
+					"name": "sortablejs",
+					"path": "test",
+					"full": "test/sortablejs",
+					"type": "dir",
+					"children": [
+						{
+							"name": "simple.page.js",
+							"path": "test/sortablejs",
+							"full": "test/sortablejs/simple.page.js",
+							"type": "file"
+						},
+						{
+							"name": "Sortable.js",
+							"path": "test/sortablejs",
+							"full": "test/sortablejs/Sortable.js",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "sub.page.js",
 					"path": "test",
 					"full": "test/sub.page.js",
 					"type": "file"
 				},
 				{
+					"name": "sub2.page.js",
+					"path": "test",
+					"full": "test/sub2.page.js",
+					"type": "file"
+				},
+				{
+					"name": "tabs",
+					"path": "test",
+					"full": "test/tabs",
+					"type": "dir",
+					"children": [
+						{
+							"name": "tabs.page.js",
+							"path": "test/tabs",
+							"full": "test/tabs/tabs.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "test.page.js",
 					"path": "test",
 					"full": "test/test.page.js",
 					"type": "file"
+				},
+				{
+					"name": "themes",
+					"path": "test",
+					"full": "test/themes",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/themes",
+							"full": "test/themes/page.js",
+							"type": "file"
+						}
+					]
 				},
 				{
 					"name": "tpl.page.js",
@@ -1382,6 +1957,38 @@
 							"children": []
 						}
 					]
+				},
+				{
+					"name": "web",
+					"path": "test",
+					"full": "test/web",
+					"type": "dir",
+					"children": [
+						{
+							"name": "css.page.js",
+							"path": "test/web",
+							"full": "test/web/css.page.js",
+							"type": "file"
+						},
+						{
+							"name": "html.page.js",
+							"path": "test/web",
+							"full": "test/web/html.page.js",
+							"type": "file"
+						},
+						{
+							"name": "js.page.js",
+							"path": "test/web",
+							"full": "test/web/js.page.js",
+							"type": "file"
+						},
+						{
+							"name": "web.page.js",
+							"path": "test/web",
+							"full": "test/web/web.page.js",
+							"type": "file"
+						}
+					]
 				}
 			]
 		},
@@ -1390,13 +1997,6 @@
 			"path": "./",
 			"full": "test.js",
 			"type": "file"
-		},
-		{
-			"name": "test2",
-			"path": "./",
-			"full": "test2",
-			"type": "dir",
-			"children": []
 		},
 		{
 			"name": "undefined",

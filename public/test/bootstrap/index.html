@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="module">
+            const hash = window.location.hash.slice(2); // "#/one/two"  ->  "one/two"
+
+            var url = window.location.pathname;
+
+            if (hash){
+
+                // /one/two/  ->  /one/two/page.js
+                if (hash.endsWith("/")){
+                    const parts = hash.split("/").filter(Boolean); // ["one", "two"]
+                    const name = parts[parts.length - 1]; // "two"
+                    
+                    url += hash + "page.js"; // "/one/two/page.js"
+                    
+                    // url = req.path + name + ".page.js"; // "/one/two/two.page.js"
+                    
+                    
+                    // /one/two  ->  /one/two.page.js
+                } else {
+                    url += hash + ".page.js";
+                }
+            } else {
+                // default page
+                // would be "/home.page.js" if this file were in root
+                url = window.location.pathname + "home.page.js";
+            }
+
+            // console.log("bootstrap", hash, url);
+			const mod = await import();
+			mod.default?.render?.();
+		</script>
+	</head>
+	<body></body>
+</html>

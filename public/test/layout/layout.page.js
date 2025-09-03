@@ -40,7 +40,7 @@ el("style", `
     }
 `);
 
-app.$main.ac("flex pad flex-h-center").style("flex-direction", "column");
+// app.$main.ac("flex pad flex-h-center").style("flex-direction", "column");
 
 class Layout extends Component {
     initialize(){

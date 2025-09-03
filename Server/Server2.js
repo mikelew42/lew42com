@@ -45,25 +45,33 @@ export default class Server extends Base {
             if (req.path.endsWith("/")){
                 const parts = req.path.split("/").filter(Boolean); // ["one", "two"]
                 const name = parts[parts.length - 1]; // "two"
-                url = req.path + name + ".page.js"; // "/one/two/two.page.js"
+
+				const candidate = path.join("public", req.path, "page.js");
+				
+				if (fs.existsSync(candidate)){
+					url = req.path + "page.js"; // "/one/two/page.js"
+				} else {
+                	url = req.path + name + ".page.js"; // "/one/two/two.page.js"
+				}
 
             // /one/two  ->  /one/two.page.js
             } else {
                 url = req.path + ".page.js";
             }
 
-            return res.send(
+			// this doesn't 404 when there is no 
+				return res.send(
 `<!DOCTYPE html>
-    <html>
-        <head>
-            <script type="module">
-                import { el, div } from "/framework/app.dev.js";
-                div("test");
-            </script>
-            <script type="module" src="${url}"></script>
-        </head>
-        <body></body>
-</html>`);
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module">
+		const mod = await import("${url}");
+		mod.default?.render?.();
+	</script>
+</head>
+<body></body>
+</html>`	);
             
         });
 	}

@@ -1,0 +1,26 @@
+body.drag-in-progress { user-select: none; cursor: grabbing !important; }
+
+.list { margin: 0.25em 0; }
+.list.dragging { outline: 1px solid blue; pointer-events: none; }
+.list.dragover { outline: 1px solid green; }
+.list.release { transition: transform 0.3s; }
+
+
+.list.Root.dragover { margin: 0.25em 0; }
+
+.list > .bar { background: white; display: flex; }
+.list > .bar > * { padding: 0.5em 1em; }
+.list > .bar > .name { cursor: grab; flex-grow: 1; }
+body.dragging .list > .bar > .name { cursor: grabbing; }
+/*body.dragging .list.dragging > .bar > .name { cursor: grab; } the idea here was to 
+indicate "release" if you return to the origin, but the problem is it prevents the hand from grabbing initially... */
+.list > .bar > .add, .list > .bar > .delete { cursor: pointer; }
+.list > .container { padding: 1em 2em; background: #eee; display: flex; flex-direction: column; background: rgba(0,0,0,0.1); }
+.list > .container:empty { display: none; }
+
+.list > .bar.dragover, .list > .container.dragover  { outline: 1px solid red; }
+.drag-cursor { margin: 0; outline: 3px solid lightblue; }
+/* .drag-cursor.grow { margin: 0.5em 0; transition: margin 0.3s; } */
+
+
+.pointer-debug { display: flex; }

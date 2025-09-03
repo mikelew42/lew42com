@@ -9,7 +9,7 @@ import util from "/framework/lib/util.js";
 
 Component.socket = File.socket = Dir.socket = app.socket;
 
-app.$main.ac("flex pad flex-h-center").style("flex-direction", "column");
+// app.$main.ac("flex pad flex-h-center").style("flex-direction", "column");
 
 el("style", `
     .comp {
