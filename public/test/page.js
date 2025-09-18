@@ -2,7 +2,7 @@ import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js"
 // import HashRunner from "/framework/App/HashRunner.js";
 
 
-
+app.$root.ac("pad");
 div.c("card", () =>{
     h1("Test");
     div.c("directory", () => {

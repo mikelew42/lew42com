@@ -4,39 +4,50 @@ import Directory from "/framework/ext/Directory/Directory.js";
 
 
 const app = window.app = new App({
+
+    render(){
+
+    },
+
+    logobar(){
+        div({
+            logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png"),
+            title: div("Lew42.com"),
+            // close: icon("close").click(() => {
+            //     this.$sidenav.remove();
+            //     this.$sidenav = null;
+            // })
+        }).click(() => {
+            window.location = "/";
+        })
+    },
+    inject(){       
+        // inject root into body
+        this.$dx.$main.append(this.$root);       
+        this.$dx.append_to(document.body);
+    },
+
+    instantiate_root(){
+        this.$body = View.body();
+        this.$root = div().attr("id", "root"); //.append_to(this.$body);
+        View.set_captor(this.$root);
+    },
+
+
     initialize(){
-        View.stylesheet("/lew42.css").on("load", () => {
-            console.log("lew42.css loaded");
-        });        
-        
-        // View.stylesheet("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap").on("load", () => {
-        //     console.log("Montserrat loaded");
-        // });
-        // this.initialize_font();
-        // this.initialize_google_icon_font();
         this.initialize_socket();
         this.initialize_directory();
-        this.initialize_ready();
+        this.initialize_dx();
+        this.font("Montserrat");
+        this.font("Material Icons");
+        this.stylesheet("/lew42.css");
+        // this.breadcrumbs();
     },
-
-    async initialize_font(){
-        this.font = new FontFace("Montserrat", "url(https://fonts.gstatic.com/s/montserrat/v30/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2)");
-        await this.font.load();
-        document.fonts.add(this.font);
-    },
-
-    initialize_google_icon_font(){
-        // View.stylesheet("https://fonts.googleapis.com/icon?family=Material+Icons").on("load", () => {
-        //     console.log("Google Icons Loaded");
-        // });
-
-    },
-
+    
     initialize_socket(){
         if (window.location.hostname == "localhost"){
             this.socket = Socket.singleton();
-        } else {
-            this.socket = { ready: Promise.resolve() };
+            this.loaders.push(this.socket.ready);
         }
     },
     
@@ -44,84 +55,51 @@ const app = window.app = new App({
         this.directory = new Directory({ 
             app: this,
             ignore: ["home.page.js"]
-         });
+        });
     },
+    
+    async initialize_dx(){
+        // debugger;
 
-    async initialize_ready(){
-		this.ready = Promise.all([
-            this.socket.ready, 
-            new Promise(resolve => {
-                if (document.readyState === "complete"){
-                    console.log("document.readyState === 'complete'");
-                    this.initialize_body();
-                    resolve(this);
-                } else {
-                    window.addEventListener("load", () => {
-                        console.log("window.load");
-                        this.initialize_body();
-                        resolve(this);
-                    });
-                }
-		    }),
-            (async () => {
-                console.log("loading Google Icon Font");
-                el("style", `.material-icons {
-                    font-family: 'Material Icons';
-                    font-weight: normal;
-                    font-style: normal;
-                    font-size: 24px;
-                    line-height: 1;
-                    letter-spacing: normal;
-                    text-transform: none;
-                    display: inline-block;
-                    white-space: nowrap;
-                    word-wrap: normal;
-                    direction: ltr;
-                    -webkit-font-feature-settings: 'liga';
-                    -webkit-font-smoothing: antialiased;
-                }`).append_to(document.head);
-                this.icon_font = new FontFace("Material Icons", "url(https://fonts.gstatic.com/s/materialicons/v143/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)", {
-                    style: "normal", weight: "400" 
-                });
-                await this.icon_font.load();
-                console.log("Google Icon Font loaded");
-                document.fonts.add(this.icon_font);
-            })(),
-            (async () => {
-                console.log("loading Montserrat FontFace");
-                this.font = new FontFace("Montserrat", "url(https://fonts.gstatic.com/s/montserrat/v30/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2)", {
-                    // 3. The descriptors object, matching your CSS
-                    // style: 'normal',
-                    weight: '100 900', // Crucial for variable fonts
-                    // display: 'swap',
-                    // unicodeRange: 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD'
-                });
-                await this.font.load();
-                console.log("Montserrat FontFace loaded");
-                document.fonts.add(this.font);
-            })(),
-            new Promise(async resolve => {
-                console.log("await fonts.ready");
-                await document.fonts.ready;
-                console.log("fonts ready");
-                resolve();
-            })
-        ]);
+        var navstate = JSON.parse(localStorage.getItem("navstate"));
 
-        await this.ready;
-        console.log("app ready");
-	},
+        if (navstate === null){
+            navstate = true;
+            localStorage.setItem("navstate", "true");
+        }
 
-    initialize_body(){
-        this.$body = View.body().init();
-        this.$body.ac("page-" + ( window.location.pathname.replace(/^\//, "").replace(/\/$/, "").replace(/\//g, "-") || "home" ));
+        window.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === '\\') {
+                e.preventDefault();
+                e.stopPropagation();
+                localStorage.setItem("navstate", JSON.stringify(!navstate));
+                this.$header.toggle();
+                this.$dx.$main.$sidenav.toggle();
+            }
+        });
+
+        View.set_captor(null); // $dx was getting captured by the $root, which caused a little problemo
+        this.$dx = div((dx) => {
+            this.header();
+            // this.breadcrumbs();
+            dx.$main = div.c("main", $main => {
+                $main.$sidenav = this.sidenav();
+            });
+        }).attr("id", "dx");
+        View.restore_captor();
+
+        if (navstate === false){
+            this.$header.hide();
+            this.$dx.$main.$sidenav.hide();
+        }
     },
 
     header(){
-        this.$header = el("header", {
-            logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png").click(() => {
+        this.$header = div.c("header", {
+            logo: div(el.c("img", "logo-img").attr("src", "/assets/img/mlogo.png").click(() => {
                 window.location = "/";
-            })
+            })),
+            breadcrumbs: this.breadcrumbs()
         });
     },
 
@@ -153,55 +131,36 @@ const app = window.app = new App({
         });
     },
 
+    breadcrumbs(){
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        let path = "";
+
+        return div.c("breadcrumbs", () => {
+            // div.c("crumb", el("a", "Home").attr("href", "/"));
+
+            parts.forEach((part, i) => {
+                path += "/" + part;
+                div.c("crumb", el("a", part).attr("href", path + "/") );
+            });
+        });
+
+    },
+
     sidenav(){
-        const app = this;
-        
-        var navstate = JSON.parse(localStorage.getItem("navstate"));
-
-        if (navstate === null){
-            navstate = true;
-            localStorage.setItem("navstate", "true");
-        }
-
-        window.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === '\\') {
-                localStorage.setItem("navstate", JSON.stringify(!navstate));
-                app.$sidenav.toggle();
-            }
+        return div.c("sidenav", () => {
+            this.directory.render();
         });
-        this.$sidenav = div.c("sidenav", {
-            logobar: div({
-                logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png"),
-                title: div("Lew42.com"),
-                // close: icon("close").click(() => {
-                //     this.$sidenav.remove();
-                //     this.$sidenav = null;
-                // })
-            }).click(() => {
-                window.location = "/";
-            }),
-            content: () =>{
-                // div.c("nav", () => {
-                //     el.c("a", "nav-item", "Framework").attr("href", "/framework/");
-                //     el.c("a", "nav-item", "Layout").attr("href", "/layout/");
-                //     el.c("a", "nav-item", "Life").attr("href", "/life/");
-                //     el.c("a", "nav-item", "Fly").attr("href", "/fly/");
-                //     el.c("a", "nav-item", "Test").attr("href", "/test/");
-                // });
-
-                this.directory.render();
-            }
-        });
-
-        if (navstate === false){
-            this.$sidenav.hide();
-        }
-
-        return this.$sidenav;
     }
 });
 
+
+/**
+ * I keep going back and forth on this.
+ * If we put the wrong things into the loaders, for example, this could cause problems.
+ * But, I think for convenience, it's not a bad idea to wait for all stylesheets and fonts before exporting.
+ */
 await app.ready;
+
 
 export default app;
 

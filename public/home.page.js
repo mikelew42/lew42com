@@ -3,7 +3,7 @@ import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js"
 console.log("begin home.page.js");
 // debugger;
 
-app.sidenav();
+// app.sidenav();
 
 app.$main = el("main", main => {
     

@@ -278,9 +278,27 @@
 									"type": "file"
 								},
 								{
-									"name": "App.page.js",
+									"name": "content.page.js",
 									"path": "framework/core/App",
-									"full": "framework/core/App/App.page.js",
+									"full": "framework/core/App/content.page.js",
+									"type": "file"
+								},
+								{
+									"name": "exported.page.js",
+									"path": "framework/core/App",
+									"full": "framework/core/App/exported.page.js",
+									"type": "file"
+								},
+								{
+									"name": "exported_fn.page.js",
+									"path": "framework/core/App",
+									"full": "framework/core/App/exported_fn.page.js",
+									"type": "file"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/core/App",
+									"full": "framework/core/App/page.js",
 									"type": "file"
 								}
 							]
@@ -372,6 +390,12 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "core.js",
+					"path": "framework",
+					"full": "framework/core.js",
+					"type": "file"
 				},
 				{
 					"name": "directory.json",
@@ -688,15 +712,15 @@
 									"type": "file"
 								},
 								{
-									"name": "Draggable.page.js",
-									"path": "framework/ext/Draggable",
-									"full": "framework/ext/Draggable/Draggable.page.js",
-									"type": "file"
-								},
-								{
 									"name": "Movable.js",
 									"path": "framework/ext/Draggable",
 									"full": "framework/ext/Draggable/Movable.js",
+									"type": "file"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/ext/Draggable",
+									"full": "framework/ext/Draggable/page.js",
 									"type": "file"
 								},
 								{
@@ -758,12 +782,6 @@
 									"type": "file"
 								},
 								{
-									"name": "HashRouter.page.js",
-									"path": "framework/ext/HashRouter",
-									"full": "framework/ext/HashRouter/HashRouter.page.js",
-									"type": "file"
-								},
-								{
 									"name": "HashTabs.css",
 									"path": "framework/ext/HashRouter",
 									"full": "framework/ext/HashRouter/HashTabs.css",
@@ -773,6 +791,12 @@
 									"name": "HashTabs.js",
 									"path": "framework/ext/HashRouter",
 									"full": "framework/ext/HashRouter/HashTabs.js",
+									"type": "file"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/ext/HashRouter",
+									"full": "framework/ext/HashRouter/page.js",
 									"type": "file"
 								}
 							]
@@ -790,15 +814,15 @@
 									"type": "file"
 								},
 								{
-									"name": "List.page.js",
-									"path": "framework/ext/List",
-									"full": "framework/ext/List/List.page.js",
-									"type": "file"
-								},
-								{
 									"name": "List.View.js",
 									"path": "framework/ext/List",
 									"full": "framework/ext/List/List.View.js",
+									"type": "file"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/ext/List",
+									"full": "framework/ext/List/page.js",
 									"type": "file"
 								},
 								{
@@ -1060,6 +1084,12 @@
 									"type": "file"
 								},
 								{
+									"name": "page.js",
+									"path": "framework/ext/Thing",
+									"full": "framework/ext/Thing/page.js",
+									"type": "file"
+								},
+								{
 									"name": "ServerThing.js",
 									"path": "framework/ext/Thing",
 									"full": "framework/ext/Thing/ServerThing.js",
@@ -1218,6 +1248,20 @@
 			"type": "file"
 		},
 		{
+			"name": "land",
+			"path": "./",
+			"full": "land",
+			"type": "dir",
+			"children": [
+				{
+					"name": "page.js",
+					"path": "land",
+					"full": "land/page.js",
+					"type": "file"
+				}
+			]
+		},
+		{
 			"name": "layout",
 			"path": "./",
 			"full": "layout",
@@ -1312,9 +1356,9 @@
 			"type": "dir",
 			"children": [
 				{
-					"name": "first.page.js",
+					"name": "page.js",
 					"path": "note",
-					"full": "note/first.page.js",
+					"full": "note/page.js",
 					"type": "file"
 				}
 			]
@@ -1343,6 +1387,20 @@
 			"full": "test",
 			"type": "dir",
 			"children": [
+				{
+					"name": "404",
+					"path": "test",
+					"full": "test/404",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/404",
+							"full": "test/404/page.js",
+							"type": "file"
+						}
+					]
+				},
 				{
 					"name": "a",
 					"path": "test",
@@ -1390,9 +1448,29 @@
 							"type": "file"
 						},
 						{
-							"name": "containers.page.js",
+							"name": "page.js",
 							"path": "test/containers",
-							"full": "test/containers/containers.page.js",
+							"full": "test/containers/page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "css-loading",
+					"path": "test",
+					"full": "test/css-loading",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/css-loading",
+							"full": "test/css-loading/page.js",
+							"type": "file"
+						},
+						{
+							"name": "styles.css",
+							"path": "test/css-loading",
+							"full": "test/css-loading/styles.css",
 							"type": "file"
 						}
 					]
@@ -1463,6 +1541,26 @@
 							"name": "styles.css",
 							"path": "test/drag",
 							"full": "test/drag/styles.css",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "drawers",
+					"path": "test",
+					"full": "test/drawers",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/drawers",
+							"full": "test/drawers/page.js",
+							"type": "file"
+						},
+						{
+							"name": "styles.css",
+							"path": "test/drawers",
+							"full": "test/drawers/styles.css",
 							"type": "file"
 						}
 					]
@@ -1608,6 +1706,12 @@
 							"type": "file"
 						}
 					]
+				},
+				{
+					"name": "page.js",
+					"path": "test",
+					"full": "test/page.js",
+					"type": "file"
 				},
 				{
 					"name": "promises",
@@ -1904,12 +2008,6 @@
 					]
 				},
 				{
-					"name": "test.page.js",
-					"path": "test",
-					"full": "test/test.page.js",
-					"type": "file"
-				},
-				{
 					"name": "themes",
 					"path": "test",
 					"full": "test/themes",
@@ -1983,9 +2081,9 @@
 							"type": "file"
 						},
 						{
-							"name": "web.page.js",
+							"name": "page.js",
 							"path": "test/web",
-							"full": "test/web/web.page.js",
+							"full": "test/web/page.js",
 							"type": "file"
 						}
 					]
