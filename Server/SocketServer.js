@@ -102,7 +102,7 @@ class Socket extends Base {
 	async message(data){
 		data = JSON.parse(data.toString());
 		data.args = data.args || [];
-		console.log(data.method + "(", ...data.args, ")", data.id);
+		console.log(data.method + "(", ...data.args, ")", data.id, data.index);
 
 		this.last_request_index = data.index;
 

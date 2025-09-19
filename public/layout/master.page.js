@@ -1,6 +1,6 @@
 import app, { App, el, div, View, h1, h2, h3, icon, p, is, Base, test } from "/app.js";
 
-app.$main.ac("flex pad flex-h-center");
+app.$root.ac("flex pad flex-h-center");
 
 
 div.c("left", () => {

@@ -1,14 +1,19 @@
 import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js";
 // import HashRunner from "/framework/App/HashRunner.js";
 
+await app.ready;
+
+el("style", `
+    #root .directory { flex-direction: row; max-width: 100%; flex-wrap: wrap; background: transparent; }
+    #root .directory .file, #root .directory .dir { background: white; flex: 0 1 auto; margin-right: 1em; margin-bottom: 1em;  }  
+`);
 
 app.$root.ac("pad");
-div.c("card", () =>{
-    h1("Test");
-    div.c("directory", () => {
-        const dir = app.directory.render_dir(app.directory.files.find(fd => fd.name === "test"));
-        dir.children.show();
-    });
+h1("Test");
+div.c("directory", () => {
+    const dir = app.directory.files.find(fd => fd.name === "test");
+    const $dir = app.directory.render_files(dir.children);
 });
 
 // app.footer();
+

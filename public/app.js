@@ -21,20 +21,20 @@ const app = window.app = new App({
             window.location = "/";
         })
     },
-    inject(){       
+    inject(){ // 6
         // inject root into body
         this.$dx.$main.append(this.$root);       
         this.$dx.append_to(document.body);
     },
 
-    instantiate_root(){
+    initialize_root(){ // 2
         this.$body = View.body();
         this.$root = div().attr("id", "root"); //.append_to(this.$body);
         View.set_captor(this.$root);
     },
 
 
-    initialize(){
+    initialize(){ // 4
         this.initialize_socket();
         this.initialize_directory();
         this.initialize_dx();
@@ -159,7 +159,7 @@ const app = window.app = new App({
  * If we put the wrong things into the loaders, for example, this could cause problems.
  * But, I think for convenience, it's not a bad idea to wait for all stylesheets and fonts before exporting.
  */
-await app.ready;
+// await app.ready;
 
 
 export default app;

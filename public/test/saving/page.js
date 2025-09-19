@@ -7,7 +7,7 @@ import Note from "/framework/ext/Note/Note.js";
 import util from "/framework/lib/util.js";
 
 
-Component.socket = File.socket = Dir.socket = app.socket;
+// Component.socket = File.socket = Dir.socket = app.socket;
 
 // app.$main.ac("flex pad flex-h-center").style("flex-direction", "column");
 
@@ -44,7 +44,7 @@ el("style", `
 console.log("before Note.instantiate");
 const notes = new Note({
     id: "notes",
-    path: "/test/saving/"
+    // path: "/test/saving/"
 });
 console.log("before notes.ready");
 await notes.ready;

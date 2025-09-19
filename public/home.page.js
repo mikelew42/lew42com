@@ -1,4 +1,6 @@
-import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon, test } from "/app.js";
+
+import Sortable from "/framework/ext/Draggable/Sortable.js";
 
 console.log("begin home.page.js");
 // debugger;
@@ -36,7 +38,22 @@ app.$main = el("main", main => {
             app.directory.render();
         });
         div.c("card", () =>{
+            test("Sortable.List spaced", t => {
+                el("button", "Debug").click(() => {
+                    t.view.tc("debug");
+                });
+                const list = new Sortable.List({ name: "Root" });
+                list.append(new Sortable.List({ name: "Step 1" }));
+                list.append(new Sortable.List({ name: "Step 2" }));
+                list.append(new Sortable.List({ name: "Step 3" }));
+                list.append(new Sortable.List({ name: "Step 4" }));
+                list.append(new Sortable.List({ name: "Step 5" }));
+                list.append(Sortable.List.make_deep(2));
+                list.render();
+            });
+
             app.directory.render();
+
             el("section", () => {
                 h2.c("icon-item", icon("format_paint"), "Work Hard");
                 p("Lorem ipsum dolor sit amet consectetur. Non pellentesque cum ipsum pretium nibh id elementum nunc sagittis. Id auctor neque donec ultrices lectus facilisis at vulputate. Nisl eget sapien sit tellus.");

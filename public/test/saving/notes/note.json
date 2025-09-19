@@ -1,8 +1,10 @@
 {
     "order": [
         1,
-        2
+        2,
+        5,
+        6
     ],
     "content": "This is some content for the first note.&nbsp; Not sure why teh layout just jumped.asdf&nbsp;",
-    "nextid": 5
+    "nextid": 7
 }

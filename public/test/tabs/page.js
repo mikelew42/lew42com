@@ -1,10 +1,5 @@
-import { el, div, Base, View } from "/framework/core/core.js";
-import Socket from "/framework/ext/Socket/Socket.js";
+import { el, div, Base, View } from "/app.js";
 
-
-Socket.singleton();
-
-View.body().init().ac("type1");
 
 el("style", `
     * { margin:0; padding: 0; box-sizing: border-box; }
