@@ -5,8 +5,6 @@ export default new Page({
     meta: import.meta,
     name: "Sub",
     content(){
-        this.back();
-        h1(this.name);
         p("This is sub.page.js");
     }
 });

@@ -3,6 +3,7 @@ import { el, div, p, Base, View, h1, h2, h3 } from "/app.js";
 export default class Page extends Base {
     render(){
         this.view = div.c("page " + this.name.toLowerCase().replace(/\s+/g, "-"), () => {
+            this.back();
             this.header();
             this.content();
             // this.footer();

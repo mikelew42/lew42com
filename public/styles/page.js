@@ -7,7 +7,8 @@ app.$root.ac("pad");
 h1("styles");
 
 tabs.c("white vertical", () => {
-    tab("Text", () => {
+    tab("Text", t => {
+        t.style("padding", "2em 3em");
         h1("This is an H1 Heading");
         p("This is a paragraph.");
         h2("This is an H2 Heading");

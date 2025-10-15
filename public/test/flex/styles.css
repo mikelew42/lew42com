@@ -1,0 +1,29 @@
+/* ft = flex test */
+.ft-html {
+    height: 800px;
+    background: gray;
+    padding: 5px;
+}
+
+.ft-body {
+    min-height: 100%;
+    background: rgb(99, 128, 255);
+    display: flex;
+}
+
+.ft-wrap {
+    background: green;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ft-main { display: flex; flex-grow: 1; }
+
+.ft-header { min-height: 50px; background: rgb(255, 255, 255); }
+
+.ft-left { background: white; min-width: 200px; }
+
+.ft-root { background: gray; padding: 4em; flex-grow: 1;  }
+
+.ft-root .card { margin-bottom: 1em;}

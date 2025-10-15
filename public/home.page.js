@@ -38,6 +38,10 @@ app.$main = el("main", main => {
             app.directory.render();
         });
         div.c("card", () =>{
+            div.c("yt-iframe").html(`<iframe src="https://youtube.com/shorts/dBQDSP1W5qU?si=LIul_ERQrefwM5R8" width="480" height="400"></iframe>
+`)
+            div.c("yt-iframe").html(`<iframe width="100%" height="500" src="https://www.youtube.com/embed/dBQDSP1W5qU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`)            
+            div.c("yt-iframe").html(`<iframe width="100%" height="500" src="https://www.youtube.com/embed/l-5xLrhMeco?si=pDfXeGL8VbS3m-jU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`)
             test("Sortable.List spaced", t => {
                 el("button", "Debug").click(() => {
                     t.view.tc("debug");

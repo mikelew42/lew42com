@@ -1,37 +1,16 @@
 import { View, Base, Events, App, el, div, h1, h2, h3, p, is, icon, Test, test } from "/framework/core/App/App.js";
 import Socket from "/framework/ext/Socket/Socket.js";
 import Directory from "/framework/ext/Directory/Directory.js";
+import Directory2 from "/framework/ext/Directory2/Directory2.js";
 
 
 const app = window.app = new App({
 
-    render(){
-
-    },
-
-    logobar(){
-        div({
-            logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png"),
-            title: div("Lew42.com"),
-            // close: icon("close").click(() => {
-            //     this.$sidenav.remove();
-            //     this.$sidenav = null;
-            // })
-        }).click(() => {
-            window.location = "/";
-        })
-    },
-    inject(){ // 6
-        // inject root into body
-        this.$dx.$main.append(this.$root);       
-        this.$dx.append_to(document.body);
-    },
-
-    initialize_root(){ // 2
-        this.$body = View.body();
-        this.$root = div().attr("id", "root"); //.append_to(this.$body);
-        View.set_captor(this.$root);
-    },
+    // initialize_root(){ // 2
+    //     this.$body = View.body();
+    //     this.$root = div().attr("id", "root"); //.append_to(this.$body);
+    //     View.set_captor(this.$root);
+    // },
 
 
     initialize(){ // 4
@@ -42,6 +21,13 @@ const app = window.app = new App({
         this.font("Material Icons");
         this.stylesheet("/lew42.css");
         // this.breadcrumbs();
+    },
+
+    
+    inject(){ // 6
+        // inject root into body
+        this.$dx.$main.append(this.$root);       
+        this.$dx.append_to(document.body);
     },
     
     initialize_socket(){
@@ -103,6 +89,18 @@ const app = window.app = new App({
         });
     },
 
+    logobar(){
+        div({
+            logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png"),
+            title: div("Lew42.com"),
+            // close: icon("close").click(() => {
+            //     this.$sidenav.remove();
+            //     this.$sidenav = null;
+            // })
+        }).click(() => {
+            window.location = "/";
+        })
+    },
     footer(){
         this.$footer = el("footer", {
             logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png").click(() => {
@@ -158,6 +156,16 @@ const app = window.app = new App({
  * I keep going back and forth on this.
  * If we put the wrong things into the loaders, for example, this could cause problems.
  * But, I think for convenience, it's not a bad idea to wait for all stylesheets and fonts before exporting.
+ * 
+ * You can't import app, then app.font("Name"), in a page, if we await export.
+ * 
+ * So yea, I think we don't await export.
+ * 
+ * Pages don't have to await app.ready: the injection is delayed until app.ready.
+ * 
+ * Which means app.font("Name") should work.
+ * 
+ * 
  */
 // await app.ready;
 

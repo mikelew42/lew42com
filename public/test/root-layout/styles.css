@@ -1,0 +1,13 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { height: 100%; }
+body { min-height: 100%; background: rgb(62, 62, 255); display: flex; outline: 5px solid black; outline-offset: -5px; }
+
+p { margin-bottom: 1em; }
+
+.root { display: flex; flex: 1 0 100%; flex-direction: column; }
+.header { min-height: 50px; background: rgb(209, 209, 209); }
+.main { display: flex; flex-grow: 1; }
+.left { background: white; min-width: 200px; }
+
+#root { background: rgb(255, 71, 71);  }
