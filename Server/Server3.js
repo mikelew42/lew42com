@@ -68,9 +68,15 @@ export default class Server3 extends Server2 {
     }
 
     listen(){
-		this.http_server.listen(80, '0.0.0.0', () => {
-			console.log("Listening (" + this.webroot + ")");
-		});
+        if (prod){
+            this.http_server.listen(443, () => {
+                console.log("Listening [port 443, !!!! PROD !!!! ] (" + this.webroot + ")");
+            });
+        } else {
+            this.http_server.listen(80, '0.0.0.0', () => {
+                console.log("Listening [port 80, not prod] (" + this.webroot + ")");
+            });
+        }
 	}
 }
 
