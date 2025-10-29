@@ -16,6 +16,8 @@ import chokidar from "chokidar";
 import ServerThing from "../public/framework/ext/Thing/ServerThing.js";
 import { Server } from "http";
 
+import cookie from "cookie";
+import cookie_parser from "cookie-parser";
 
 /*
 I don't believe this properly closes the sockets...
@@ -62,7 +64,8 @@ export default class SocketServer extends Base {
 		const socket = new this.constructor.Socket({
 			socket_server: this,
 			ws: ws,
-			server: this.server
+			server: this.server,
+			req
 		});
 		this.sockets.push(socket);
 		// this.ws = ws;
@@ -87,12 +90,83 @@ class Socket extends Base {
 			this.socket_server.sockets = this.socket_server.sockets.filter(socket => socket !== this);
 		});
 
-		// this.rpc("log", "connected to server");
+		// this.rpc("log", "Server is connected");
 
 		// const thing = new ServerThing();
 		// thing.thing();
 
 		// console.log("SOCKET szzzzzdfyy");
+
+		const req = this.req;
+		const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
+		console.log("headers", req.headers);
+		console.log("headers.cookie", req.headers.cookie);
+		console.log("parsed cookies", cookies);
+  		const signedCookie = cookies[this.server.SESSION_NAME];
+		// 2. Unsign Cookie (using express's cookie-parser logic)
+		let sessionID;
+		if (signedCookie) {
+			sessionID = cookie_parser.signedCookie(signedCookie, this.server.SESSION_SECRET);
+			if (!sessionID) {
+				// If unsigning fails (e.g., tampered cookie)
+				ws.close(1008, 'Unauthorized - Invalid Signature');
+				console.log("invalid cookie signature?")
+				return;
+			}
+			console.log("valid cookie signature!");
+		} else {
+			console.log("no signed cookie?");
+		}
+
+		// 3. Load Session
+		if (sessionID) {
+			this.server.store.get(sessionID, (err, session) => {
+				if (err) {
+					console.error('Error loading session:', err);
+					this.ws.close(1008, 'Unauthorized - Session Error');
+					return;
+				}
+
+				if (!session || !session.userId) { // **<-- Your Authentication Check**
+					// Session exists but user is not authenticated (e.g., no userId)
+					console.log("wtf?");
+					this.ws.close(1008, 'Unauthorized - Not Logged In');
+					return;
+				}
+
+				// 4. Attach Session
+				req.session = session;
+				req.sessionID = sessionID;
+				// You may want to attach the session to the 'ws' object for convenience
+				// this.session = session;
+
+				console.log(`WebSocket connected for user: ${session.userId}`);
+				// Connection is authorized and session is loaded
+				this.rpc("log", "cookie shit worked?");
+
+				// 5. Handle messages and save session manually
+				// ws.on('message', (message) => {
+				// 	// Access session: ws.session or req.session
+				// 	// e.g., Update a counter in the session
+				// 	if (req.session) {
+				// 	req.session.wsMessages = (req.session.wsMessages || 0) + 1;
+					
+				// 	// **MANUALLY SAVE THE SESSION**
+				// 	// After modifying the session, you must save it explicitly
+				// 	sessionStore.set(req.sessionID, req.session, (err) => {
+				// 		if (err) console.error('Error saving session:', err);
+				// 	});
+				// 	}
+				// 	// ... handle message logic
+				// });
+
+			});
+		} else {
+			// No session cookie found
+			console.log("end of cookie parsing, no cookie?");
+			this.ws.close(1008, 'Unauthorized - No Session ID');
+		}
+
 	}
 
 	send(obj){

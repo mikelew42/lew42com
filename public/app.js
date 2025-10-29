@@ -13,13 +13,17 @@ const app = window.app = new App({
     // },
 
 
-    initialize(){ // 4
-        this.initialize_socket();
-        this.initialize_directory();
-        this.initialize_dx();
+    async initialize_app(){ // 4
         this.font("Montserrat");
         this.font("Material Icons");
         this.stylesheet("/lew42.css");
+        this.initialize_root();
+        this.initialize_socket();
+        this.initialize_directory();
+        this.initialize_dx();
+        await this.initialize_page();
+        await this.ready;
+        this.inject();
         // this.breadcrumbs();
     },
 

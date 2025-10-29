@@ -1957,6 +1957,34 @@
 					"children": []
 				},
 				{
+					"name": "login",
+					"path": "test",
+					"full": "test/login",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/login",
+							"full": "test/login/page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "login2",
+					"path": "test",
+					"full": "test/login2",
+					"type": "dir",
+					"children": [
+						{
+							"name": "index.html",
+							"path": "test/login2",
+							"full": "test/login2/index.html",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "mobile",
 					"path": "test",
 					"full": "test/mobile",

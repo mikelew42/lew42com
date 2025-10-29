@@ -1,7 +1,7 @@
 import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js";
 // import HashRunner from "/framework/App/HashRunner.js";
 
-await app.ready;
+// await app.ready; !!! can't await in page... 
 
 el("style", `
     #root .directory { flex-direction: row; max-width: 100%; flex-wrap: wrap; background: transparent; }
@@ -10,6 +10,8 @@ el("style", `
 
 app.$root.ac("pad");
 h1("Test");
+
+await app.directory.ready;
 div.c("directory", () => {
     const dir = app.directory.files.find(fd => fd.name === "test");
     const $dir = app.directory.render_files(dir.children);
