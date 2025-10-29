@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 import http from "http";
 import https from "https";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -47,8 +48,6 @@ export default class Server3 extends Server2 {
 
     initialize_http_server(){
         if (prod){
-            const fs = require('fs');
-
             // The domain name is used as the directory name
             const domainName = 'lew42.com'; 
 
