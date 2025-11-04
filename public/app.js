@@ -3,6 +3,7 @@ import Socket from "/framework/ext/Socket/Socket.js";
 import Directory from "/framework/ext/Directory/Directory.js";
 import Directory2 from "/framework/ext/Directory2/Directory2.js";
 
+import "/framework/ext/Lorem/Lorem.js";
 
 const app = window.app = new App({
 
@@ -56,13 +57,15 @@ const app = window.app = new App({
         if (navstate === null){
             navstate = true;
             localStorage.setItem("navstate", "true");
+            console.log("navstate was null, now = true");
         }
 
         window.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.key === '\\') {
                 e.preventDefault();
                 e.stopPropagation();
-                localStorage.setItem("navstate", JSON.stringify(!navstate));
+                navstate = !navstate;
+                localStorage.setItem("navstate", JSON.stringify(navstate));
                 this.$header.toggle();
                 this.$dx.$main.$sidenav.toggle();
             }
@@ -81,6 +84,7 @@ const app = window.app = new App({
         if (navstate === false){
             this.$header.hide();
             this.$dx.$main.$sidenav.hide();
+            console.log("navstate === false");
         }
     },
 
@@ -152,6 +156,14 @@ const app = window.app = new App({
         return div.c("sidenav", () => {
             this.directory.render();
         });
+    },
+
+    lorem(n = 1){
+        switch(n){
+            case 1:
+                return p("Lorem ipsum dolor sit amet consectetur. Non pellentesque cum ipsum pretium nibh id elementum nunc sagittis. Id auctor neque donec ultrices lectus facilisis at vulputate. Nisl eget sapien sit tellus.");
+        }
+        
     }
 });
 
@@ -173,7 +185,8 @@ const app = window.app = new App({
  */
 // await app.ready;
 
+const lorem = app.lorem;
 
 export default app;
 
-export { app, View, Base, Events, App, el, div, h1, h2, h3, p, is, icon, Test, test };
+export { app, View, Base, Events, App, el, div, h1, h2, h3, p, is, icon, Test, test, lorem };

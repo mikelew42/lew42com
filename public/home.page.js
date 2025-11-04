@@ -37,17 +37,19 @@ app.$main = el("main", main => {
     
             app.directory.render();
         });
-        div.c("card", () =>{
-            div.c("yt-iframe").html(`<iframe src="https://youtube.com/shorts/dBQDSP1W5qU?si=LIul_ERQrefwM5R8" width="480" height="400"></iframe>
-`)
-            div.c("yt-iframe").html(`<iframe width="100%" height="500" src="https://www.youtube.com/embed/dBQDSP1W5qU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`)            
+        div.c("card", () =>{      
+            div.c("codepen-embed").html(`<iframe height="300" style="width: 100%;" scrolling="no" title="Framework" src="https://codepen.io/technolojesus/embed/PwZgKQE?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true">
+      See the Pen <a href="https://codepen.io/technolojesus/pen/PwZgKQE">
+  Framework</a> by Michael Lewis (<a href="https://codepen.io/technolojesus">@technolojesus</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+      </iframe>`);    
             div.c("yt-iframe").html(`<iframe width="100%" height="500" src="https://www.youtube.com/embed/l-5xLrhMeco?si=pDfXeGL8VbS3m-jU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`)
             test("Sortable.List spaced", t => {
                 el("button", "Debug").click(() => {
                     t.view.tc("debug");
                 });
                 const list = new Sortable.List({ name: "Root" });
-                list.append(new Sortable.List({ name: "Step 1" }));
+                list.append(new Sortable.List({ name: "Step 1" }).append(Sortable.List.make_deep(2)));
                 list.append(new Sortable.List({ name: "Step 2" }));
                 list.append(new Sortable.List({ name: "Step 3" }));
                 list.append(new Sortable.List({ name: "Step 4" }));

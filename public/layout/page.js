@@ -3,9 +3,11 @@ import app, { App, el, div, View, h1, h2, h3, icon, p, is, Base, test } from "/a
 app.$root.ac("flex pad flex-v");
 
 el("style", `
-    .directory { margin-bottom: 3em; max-width: none; }
+    .directory { max-width: none; }
     
     .area { background: rgba(0,0,0,0.1); padding: 1em; }
+    #root .directory { flex-direction: row; max-width: 100%; flex-wrap: wrap; background: transparent; }
+    #root .directory .file, #root .directory .dir { background: white; flex: 0 1 auto; margin-right: 1em; margin-bottom: 1em;  } 
 `);
 
 
@@ -13,7 +15,11 @@ el("style", `
 //     app.directory.render();
 // });
 h1("Layout");
-
+await app.directory.ready;
+div.c("directory", () => {
+    const dir = app.directory.files.find(fd => fd.name === "layout");
+    const $dir = app.directory.render_files(dir.children);
+});
 h2("Global Layouts");
 
 
@@ -96,13 +102,7 @@ div.c("layout card", layout => {
     h2("Work Hard");
     p("Lorem ipsum dolor sit amet consectetur. Non pellentesque cum ipsum pretium nibh id elementum nunc sagittis. Id auctor neque donec ultrices lectus facilisis at vulputate. Nisl eget sapien sit tellus.");
 })
-div.c("directory", () => {
-    // i think we need an await here, but capturing is not async friendly...
-    // you'd have to directory.append(() => {}) after the await in order to
-    // properly capture
-    const dir = app.directory.files.find(fd => fd.name === "layout");
-    const $dir = app.directory.render_files(dir.children);
-});
+
 div.c("card", () =>{
     el("section", () => {
         h2("Work Hard");

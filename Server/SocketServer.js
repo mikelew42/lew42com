@@ -164,7 +164,7 @@ class Socket extends Base {
 		} else {
 			// No session cookie found
 			console.log("end of cookie parsing, no cookie?");
-			this.ws.close(1008, 'Unauthorized - No Session ID');
+			// this.ws.close(1008, 'Unauthorized - No Session ID');
 		}
 
 	}

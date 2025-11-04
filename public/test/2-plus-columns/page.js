@@ -6,6 +6,8 @@ el("style", `
     .pages { container-type: inline-size; display: flex; gap: 1em; }    
     .pages > * { flex: 1; }
 
+    .card { max-width: 40em; }
+
     .first { padding: 2em 3em; }
 
     .focus { outline: 1px solid blue; }

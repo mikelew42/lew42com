@@ -81,7 +81,8 @@ section { margin-bottom: 3em; }
 .logo-img { height: 1.6em; }
 
 
-.card { background: white; max-width: 48em; margin-bottom: 1em; padding: 1.5em 2em; }
+.card { background: white; /*max-width: 48em;*/ margin-bottom: 1em; padding: 1.5em 2em; }
+.card.mw { max-width: 48em; }
 #root > .card { padding: 3em 4em 4em; }
 
 button, .button { 
@@ -110,3 +111,5 @@ button.prim:hover, .button.prim:hover { background: color-mix(in srgb, var(--pri
 
 
 .flex-gap-1 { gap: 1em; }
+    .flex.gap { gap: 1em; }
+    .flex.wrap { flex-wrap: wrap; }

@@ -388,15 +388,15 @@
 							"type": "dir",
 							"children": [
 								{
-									"name": "View.js",
+									"name": "page.js",
 									"path": "framework/core/View",
-									"full": "framework/core/View/View.js",
+									"full": "framework/core/View/page.js",
 									"type": "file"
 								},
 								{
-									"name": "View.page.js",
+									"name": "View.js",
 									"path": "framework/core/View",
-									"full": "framework/core/View/View.page.js",
+									"full": "framework/core/View/View.js",
 									"type": "file"
 								}
 							]
@@ -978,6 +978,20 @@
 							]
 						},
 						{
+							"name": "Lorem",
+							"path": "framework/ext",
+							"full": "framework/ext/Lorem",
+							"type": "dir",
+							"children": [
+								{
+									"name": "Lorem.js",
+									"path": "framework/ext/Lorem",
+									"full": "framework/ext/Lorem/Lorem.js",
+									"type": "file"
+								}
+							]
+						},
+						{
 							"name": "Module",
 							"path": "framework/ext",
 							"full": "framework/ext/Module",
@@ -1405,6 +1419,44 @@
 			"full": "layout",
 			"type": "dir",
 			"children": [
+				{
+					"name": "flex",
+					"path": "layout",
+					"full": "layout/flex",
+					"type": "dir",
+					"children": [
+						{
+							"name": "basis.page.js",
+							"path": "layout/flex",
+							"full": "layout/flex/basis.page.js",
+							"type": "file"
+						},
+						{
+							"name": "max-width.page.js",
+							"path": "layout/flex",
+							"full": "layout/flex/max-width.page.js",
+							"type": "file"
+						},
+						{
+							"name": "page.js",
+							"path": "layout/flex",
+							"full": "layout/flex/page.js",
+							"type": "file"
+						},
+						{
+							"name": "simple.page.js",
+							"path": "layout/flex",
+							"full": "layout/flex/simple.page.js",
+							"type": "file"
+						},
+						{
+							"name": "test.page.js",
+							"path": "layout/flex",
+							"full": "layout/flex/test.page.js",
+							"type": "file"
+						}
+					]
+				},
 				{
 					"name": "iframe-layouts",
 					"path": "layout",
@@ -2089,6 +2141,12 @@
 							"name": "page.js",
 							"path": "test/page",
 							"full": "test/page/page.js",
+							"type": "file"
+						},
+						{
+							"name": "sub.page.js",
+							"path": "test/page",
+							"full": "test/page/sub.page.js",
 							"type": "file"
 						}
 					]
