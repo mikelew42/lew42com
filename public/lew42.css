@@ -47,7 +47,7 @@ body { color: var(--bg); background: #ddd; font-family: Montserrat; height: 100%
 
 .app { display: flex; flex: 1 1 100%; flex-direction: column; height: 100%;  }
 
-.background { flex: 1 1 0%; overflow: auto; display: flex;flex-direction: column; overflow-x: hidden; overflow-y: auto; }
+.background { flex: 1 1 0%; overflow: auto; display: flex;flex-direction: column; }
 
 .root { flex: 1 1 0%; container-type: inline-size;  width: 100%; }
 

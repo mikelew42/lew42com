@@ -43,38 +43,7 @@ export default class Server {
                 return res.status(404).end();
             }
 
-            var url;
-            // /one/two/  ->  /one/two/two.page.js
-            if (req.path.endsWith("/")){
-                const parts = req.path.split("/").filter(Boolean); // ["one", "two"]
-                const name = parts[parts.length - 1]; // "two"
-
-				const candidate = path.join("public", req.path, "page.js");
-				
-				if (fs.existsSync(candidate)){
-					url = req.path + "page.js"; // "/one/two/page.js"
-				} else {
-                	url = req.path + name + ".page.js"; // "/one/two/two.page.js"
-				}
-
-            // /one/two  ->  /one/two.page.js
-            } else {
-                url = req.path + ".page.js";
-            }
-
-			// this doesn't 404 when there is no 
-				return res.send(
-`<!DOCTYPE html>
-<html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script type="module">
-		const mod = await import("${url}");
-		mod.default?.render?.();
-	</script>
-</head>
-<body></body>
-</html>`	);
+           res.sendFile(path.join(__dirname, '../public', 'index.html'));
             
         });
 	}

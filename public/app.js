@@ -6,55 +6,17 @@ import "/framework/ext/Lorem/Lorem.js";
 
 const app = window.app = new App({
 
-    // initialize_root(){ // 2
-    //     this.$body = View.body();
-    //     this.$root = div().attr("id", "root"); //.append_to(this.$body);
-    //     View.set_captor(this.$root);
-    // },
-
-
-    async instantiate(){ // 4
-        this.load();
-        this.initialize_root();
-        this.initialize_socket();
-        this.initialize_directory();
-        this.initialize_dx();
-        await this.load_page();
-        await this.loaded;
-        this.inject();
-        this.ready.resolve(); // app.ready!
-    },
-
-
-    async instantiate2(){ // 4
-        // load without await
-        this.load();
-
-        // directory needs to exist before rendering...
-        this.instantiate_directory();
-        this.instantiate_socket();
-        
-        // render before requesting the page.js
-        this.render();
-        
-        // await page.js completion before awaiting dynamic this.loaders
-        await this.load_page();
-
-        // wait for all the loaders before injecting
-        await this.loaded;
-
-        // put the app in the dom
-        this.inject();
-
-        // app.ready!
-        this.ready.resolve();
-    },
-
     load(){
         this.load_framework();
         this.font("Montserrat");
         this.font("Material Icons");
         this.stylesheet(import.meta, "lew42.css");
+    },
+
+    config(){
+        // directory needs to exist before rendering...
+        this.instantiate_directory();
+        this.instantiate_socket();
     },
     
     instantiate_socket(){
@@ -66,10 +28,7 @@ const app = window.app = new App({
     },
     
     instantiate_directory() {
-        this.directory = new Directory({ 
-            app: this
-        });
-
+        this.directory = new Directory({ app: this });
         this.loaders.push(this.directory.ready);
     },
 
@@ -120,31 +79,6 @@ const app = window.app = new App({
         this.initialize_navstate();
 		View.set_captor(this.$root);
     },
-    
-    
-    async initialize_dx(){
-        // debugger;
-        
-        
-        View.set_captor(null); // $dx was getting captured by the $root, which caused a little problemo
-        this.$dx = div(($dx) => {
-            this.header();
-            // this.breadcrumbs();
-            $dx.$main = div.c("main", $main => {
-                $main.$sidenav = this.sidenav();
-                $main.$rootwrap = div.c("rootwrap", this.$root, this.footer());
-                // $main.append(this.$root);
-                // $main.$properties = this.sidenav();
-                // this.footer();
-            });
-            
-            // this.footer();
-        }).attr("id", "dx");
-        View.restore_captor();
-        
-        this.initialize_navstate();
-
-    },
 
     header(){
         return this.$header = div.c("header", {
@@ -161,18 +95,6 @@ const app = window.app = new App({
         });
     },
 
-    logobar(){  // not used?
-        div({
-            logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png"),
-            title: div("Lew42.com"),
-            // close: icon("close").click(() => {
-            //     this.$sidenav.remove();
-            //     this.$sidenav = null;
-            // })
-        }).click(() => {
-            window.location = "/";
-        })
-    },
     footer(){
         return this.$footer = div.c("footer bg", {
             logo: div(el.c("img", "logo-img").attr("src", "/assets/img/mlogo.png").click(() => {
@@ -231,24 +153,6 @@ const app = window.app = new App({
         
     }
 });
-
-
-/**
- * I keep going back and forth on this.
- * If we put the wrong things into the loaders, for example, this could cause problems.
- * But, I think for convenience, it's not a bad idea to wait for all stylesheets and fonts before exporting.
- * 
- * You can't import app, then app.font("Name"), in a page, if we await export.
- * 
- * So yea, I think we don't await export.
- * 
- * Pages don't have to await app.ready: the injection is delayed until app.ready.
- * 
- * Which means app.font("Name") should work.
- * 
- * 
- */
-// await app.ready;
 
 const lorem = app.lorem;
 
