@@ -1,3 +1,3 @@
-import Server from "./Server/Server3.js";
+import Server from "./Server/Server2.js";
 
 new Server();

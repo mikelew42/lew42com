@@ -1,7 +1,6 @@
 import { View, Base, Events, App, el, div, h1, h2, h3, p, is, icon, Test, test } from "/framework/core/App/App.js";
 import Socket from "/framework/ext/Socket/Socket.js";
 import Directory from "/framework/ext/Directory/Directory.js";
-import Directory2 from "/framework/ext/Directory2/Directory2.js";
 
 import "/framework/ext/Lorem/Lorem.js";
 
@@ -14,48 +13,71 @@ const app = window.app = new App({
     // },
 
 
-    async initialize_app(){ // 4
-        this.font("Montserrat");
-        this.font("Material Icons");
-        this.stylesheet("/lew42.css");
+    async instantiate(){ // 4
+        this.load();
         this.initialize_root();
         this.initialize_socket();
         this.initialize_directory();
         this.initialize_dx();
-        await this.initialize_page();
-        await this.ready;
+        await this.load_page();
+        await this.loaded;
         this.inject();
-        // this.breadcrumbs();
+        this.ready.resolve(); // app.ready!
     },
 
-    
-    inject(){ // 6
-        // inject root into body
-        this.$dx.$main.append(this.$root);       
-        this.$dx.append_to(document.body);
+
+    async instantiate2(){ // 4
+        // load without await
+        this.load();
+
+        // directory needs to exist before rendering...
+        this.instantiate_directory();
+        this.instantiate_socket();
+        
+        // render before requesting the page.js
+        this.render();
+        
+        // await page.js completion before awaiting dynamic this.loaders
+        await this.load_page();
+
+        // wait for all the loaders before injecting
+        await this.loaded;
+
+        // put the app in the dom
+        this.inject();
+
+        // app.ready!
+        this.ready.resolve();
+    },
+
+    load(){
+        this.load_framework();
+        this.font("Montserrat");
+        this.font("Material Icons");
+        this.stylesheet(import.meta, "lew42.css");
     },
     
-    initialize_socket(){
+    instantiate_socket(){
+        // what if the socket fails to ready? the page won't inject...
         if (window.location.hostname == "localhost"){
             this.socket = Socket.singleton();
             this.loaders.push(this.socket.ready);
         }
     },
     
-    initialize_directory() {
+    instantiate_directory() {
         this.directory = new Directory({ 
-            app: this,
-            ignore: ["home.page.js"]
+            app: this
         });
+
+        this.loaders.push(this.directory.ready);
     },
-    
-    async initialize_dx(){
-        // debugger;
 
-        var navstate = JSON.parse(localStorage.getItem("navstate"));
+    initialize_navstate(){
+        this.navstate = JSON.parse(localStorage.getItem("navstate"));
 
-        if (navstate === null){
-            navstate = true;
+        if (this.navstate === null){
+            this.navstate = true;
             localStorage.setItem("navstate", "true");
             console.log("navstate was null, now = true");
         }
@@ -64,40 +86,82 @@ const app = window.app = new App({
             if (e.ctrlKey && e.key === '\\') {
                 e.preventDefault();
                 e.stopPropagation();
-                navstate = !navstate;
-                localStorage.setItem("navstate", JSON.stringify(navstate));
+                this.navstate = !this.navstate;
+                localStorage.setItem("navstate", JSON.stringify(this.navstate));
                 this.$header.toggle();
-                this.$dx.$main.$sidenav.toggle();
+                this.$sidenav.toggle();
+                this.$footer.toggle();
             }
         });
 
-        View.set_captor(null); // $dx was getting captured by the $root, which caused a little problemo
-        this.$dx = div((dx) => {
-            this.header();
-            // this.breadcrumbs();
-            dx.$main = div.c("main", $main => {
-                $main.$sidenav = this.sidenav();
-            });
-        }).attr("id", "dx");
-        View.restore_captor();
-
-        if (navstate === false){
+        if (this.navstate === false){
             this.$header.hide();
-            this.$dx.$main.$sidenav.hide();
+            this.$sidenav.hide();
+            this.$footer.toggle();
             console.log("navstate === false");
         }
     },
 
+    render(){
+		this.$body = View.body();
+		this.$app = div.c("app", $app => {
+			$app.header = this.header();
+			$app.main = div.c("main", (main) => {
+				main.left = div.c("left", this.sidenav());
+				main.bg = div.c("background", () => {
+					this.$root = div.c("root");
+					$app.footer = this.footer();
+				});
+				// main.right = div.c("right");
+			});
+			// $app.footer = div.c("footer");
+		});
+
+        this.initialize_navstate();
+		View.set_captor(this.$root);
+    },
+    
+    
+    async initialize_dx(){
+        // debugger;
+        
+        
+        View.set_captor(null); // $dx was getting captured by the $root, which caused a little problemo
+        this.$dx = div(($dx) => {
+            this.header();
+            // this.breadcrumbs();
+            $dx.$main = div.c("main", $main => {
+                $main.$sidenav = this.sidenav();
+                $main.$rootwrap = div.c("rootwrap", this.$root, this.footer());
+                // $main.append(this.$root);
+                // $main.$properties = this.sidenav();
+                // this.footer();
+            });
+            
+            // this.footer();
+        }).attr("id", "dx");
+        View.restore_captor();
+        
+        this.initialize_navstate();
+
+    },
+
     header(){
-        this.$header = div.c("header", {
+        return this.$header = div.c("header", {
             logo: div(el.c("img", "logo-img").attr("src", "/assets/img/mlogo.png").click(() => {
                 window.location = "/";
             })),
-            breadcrumbs: this.breadcrumbs()
+            breadcrumbs: this.breadcrumbs(),
+            btns: div(() => {
+                icon("menu").ac("menu");
+                icon("close").ac("close");
+            }).click(() => {
+                View.body().tc("menu-open");
+            })
         });
     },
 
-    logobar(){
+    logobar(){  // not used?
         div({
             logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png"),
             title: div("Lew42.com"),
@@ -110,10 +174,10 @@ const app = window.app = new App({
         })
     },
     footer(){
-        this.$footer = el("footer", {
-            logo: el.c("img", "logo").attr("src", "/assets/img/mlogo.png").click(() => {
+        return this.$footer = div.c("footer bg", {
+            logo: div(el.c("img", "logo-img").attr("src", "/assets/img/mlogo.png").click(() => {
                 window.location = "/";
-            })
+            })),
         });
     },
 
@@ -146,14 +210,15 @@ const app = window.app = new App({
 
             parts.forEach((part, i) => {
                 path += "/" + part;
-                div.c("crumb", el("a", part).attr("href", path + "/") );
+                div.c("crumb" + (i === (parts.length - 1) ? " active-node" : ""), el("a", part).attr("href", path + "/") );
+                // console.log(i, parts.length);
             });
         });
 
     },
 
     sidenav(){
-        return div.c("sidenav", () => {
+        return this.$sidenav = div.c("sidenav", () => {
             this.directory.render();
         });
     },
@@ -190,3 +255,4 @@ const lorem = app.lorem;
 export default app;
 
 export { app, View, Base, Events, App, el, div, h1, h2, h3, p, is, icon, Test, test, lorem };
+export * from "/framework/core/App/App.js";

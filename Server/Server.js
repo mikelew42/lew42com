@@ -1,5 +1,3 @@
-import Base from "../public/framework/core/Base/Base.js";
-
 import express from "express";
 import http from "http";
 import url from "url";
@@ -11,7 +9,12 @@ import SocketServer from "./SocketServer.js";
 
 
 
-export default class Server extends Base {
+export default class Server {
+
+	constructor(...args){
+		Object.assign(this, ...args);
+		this.initialize();
+	}
 
 	initialize(){
 		this.initialize_server();
@@ -31,7 +34,49 @@ export default class Server extends Base {
 	initialize_express_app(){
 		this.express = express;
 		this.express_app = express();
-		this.express_app.use(express.static("public"));
+		this.express_app.use(express.static("public", { redirect: false }));
+        this.express_app.use((req, res, next) => {
+            console.log("req.path", req.path);
+
+            // If this ends in ".ext", let it 404
+            if (/\.[a-zA-Z0-9]+$/.test(req.path)) {
+                return res.status(404).end();
+            }
+
+            var url;
+            // /one/two/  ->  /one/two/two.page.js
+            if (req.path.endsWith("/")){
+                const parts = req.path.split("/").filter(Boolean); // ["one", "two"]
+                const name = parts[parts.length - 1]; // "two"
+
+				const candidate = path.join("public", req.path, "page.js");
+				
+				if (fs.existsSync(candidate)){
+					url = req.path + "page.js"; // "/one/two/page.js"
+				} else {
+                	url = req.path + name + ".page.js"; // "/one/two/two.page.js"
+				}
+
+            // /one/two  ->  /one/two.page.js
+            } else {
+                url = req.path + ".page.js";
+            }
+
+			// this doesn't 404 when there is no 
+				return res.send(
+`<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module">
+		const mod = await import("${url}");
+		mod.default?.render?.();
+	</script>
+</head>
+<body></body>
+</html>`	);
+            
+        });
 	}
 
 
@@ -53,36 +98,21 @@ export default class Server extends Base {
 	}
 
 	initialize_directorize_framework(){
-		// this.watcher = chokidar.watch([ 
-		// 	"./public/",
-		// 	"!**/*.json",
-		// 	"!**/.git/**", 
-		// 	"!**/node_modules/**" ], { ignoreInitial: true });
-		
 		this.watcher = chokidar.watch("public", {
 			ignored: (path, stats) => {
-				if (stats && stats.isDirectory()) return false; // don't ignore directories
+				if (stats && stats.isDirectory()) return false; // ignore directories
 				return path.endsWith(".json") || path.includes(".git") || path.includes("node_modules");
 			},
 			ignoreInitial: true
 		});
 
-		// this.watcher.on("ready", () => {
-		// 	console.log(this.watcher.getWatched());
-		// });
-
 		this.watcher.on("add", this.update_framework_directories.bind(this));
-		this.watcher.on("addDir", this.update_framework_directories.bind(this));
 		this.watcher.on("unlink", this.update_framework_directories.bind(this));
-		this.watcher.on("unlinkDir", this.update_framework_directories.bind(this));
-		// this.watcher.on("all", (event, path) => {
-		// 	console.log("all", event, path);
-		// });
 
 		this.update_framework_directories("initial");
 	}
 
-		save(){
+	save(){
 		if (!this.saving)
 			this.saving = setTimeout(this.send, 0);
 	}
@@ -104,7 +134,7 @@ export default class Server extends Base {
 				fs.writeFileSync("./public/directory.json", JSON.stringify({ files: this.build_dir("./public/") }, null, "\t"));
 				fs.writeFileSync("./public/framework/directory.json", JSON.stringify({ files: this.build_dir("./public/framework/") }, null, "\t"));
 				// if (!e.includes("notes")){
-				// 	this.socket_server.changed(e);
+					this.socket_server.changed(e);
 				// }
 				this.rebuilding = false;
 			}, 0);
@@ -144,44 +174,6 @@ export default class Server extends Base {
 
 		return result;
 	}
-
-	build_dir2(dir, parent) {
-		const base = path.resolve('./public/'); // base path to strip
-
-		console.log("BASE", base);
-		const data = fs.readdirSync(dir, { withFileTypes: true });
-
-		const result = data.map(file => {
-			const new_file = {};
-			new_file.old = file;
-			new_file.name = file.name;
-			new_file.path = file.path.replace(/\\/g, '/');
-			let full = path.join(new_file.path, new_file.name).replace(/\\/g, '/');
-
-			// Normalize and strip base path
-			full = path.resolve(full).replace(base, '').replace(/\\/g, '/');
-			// if (!full.startsWith('/')) full = '/' + full;
-
-			new_file.full = full;
-
-			if (file.isFile()) {
-				new_file.type = 'file';
-			} else {
-				new_file.type = 'dir';
-				if (new_file.name !== '.git' && new_file.name !== 'node_modules') {
-					new_file.children = this.build_dir(path.join(dir, file.name));
-				} else {
-					new_file.children = [];
-				}
-			}
-
-			return new_file;
-		});
-
-		return result;
-	}
-
-
 }
 
 Server.SocketServer = SocketServer;

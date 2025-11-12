@@ -1,1 +1,0 @@
-console.log("hello from /test/a/a.page.js");

@@ -19,3 +19,9 @@ div.c("directory", () => {
 
 // app.footer();
 
+// await app.ready; can't do it
+//    if we await import of page before resolving ready, app will never be ready, page module will never resolve...
+
+app.ready.then(() => {
+    console.log("app is ready!"); // this should work fine.
+});

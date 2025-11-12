@@ -1,0 +1,9 @@
+.test { position: relative; max-width: none; margin-bottom: 2em;  background: #aaa; box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2); border-radius: 4px; overflow: hidden; }
+.test .error { color: var(--prim); position: absolute; right: calc(50% + 0.6em) ; bottom: 0.25em; user-select: none; }
+.editor-textarea { field-sizing: content; padding: 1.5em 2em 2em; tab-size: 4; font-size: 1em;  background: var(--bg);
+    color: #eee;
+    border: 0;
+    outline: none;
+    resize: none; }
+.viewport { min-height: 3.6em; padding: 1.5em 2em 2em; background: #ebebebff; }
+.status { font-size: 0.8em; padding: 0.5em 1em; }

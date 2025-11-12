@@ -1,34 +1,6 @@
 {
 	"files": [
 		{
-			"name": ".well-known",
-			"path": "./",
-			"full": ".well-known",
-			"type": "dir",
-			"children": [
-				{
-					"name": "acme-challenge",
-					"path": ".well-known",
-					"full": ".well-known/acme-challenge",
-					"type": "dir",
-					"children": [
-						{
-							"name": "MiI6O32466JZFA5VTF-Wal50dhCeV2WHoxr1L0lifJ8r8mnaR6Rm7FB_GNwxiMXa",
-							"path": ".well-known/acme-challenge",
-							"full": ".well-known/acme-challenge/MiI6O32466JZFA5VTF-Wal50dhCeV2WHoxr1L0lifJ8r8mnaR6Rm7FB_GNwxiMXa",
-							"type": "file"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "404.html",
-			"path": "./",
-			"full": "404.html",
-			"type": "file"
-		},
-		{
 			"name": "app.js",
 			"path": "./",
 			"full": "app.js",
@@ -67,6 +39,18 @@
 							"type": "file"
 						},
 						{
+							"name": "favicon - Copy.png",
+							"path": "assets/img",
+							"full": "assets/img/favicon - Copy.png",
+							"type": "file"
+						},
+						{
+							"name": "favicon.png",
+							"path": "assets/img",
+							"full": "assets/img/favicon.png",
+							"type": "file"
+						},
+						{
 							"name": "frog-island.png",
 							"path": "assets/img",
 							"full": "assets/img/frog-island.png",
@@ -89,26 +73,6 @@
 			]
 		},
 		{
-			"name": "component.json",
-			"path": "./",
-			"full": "component.json",
-			"type": "file"
-		},
-		{
-			"name": "directory-container-directory-container",
-			"path": "./",
-			"full": "directory-container-directory-container",
-			"type": "dir",
-			"children": [
-				{
-					"name": "directory-container-directory-container.js",
-					"path": "directory-container-directory-container",
-					"full": "directory-container-directory-container/directory-container-directory-container.js",
-					"type": "file"
-				}
-			]
-		},
-		{
 			"name": "directory.json",
 			"path": "./",
 			"full": "directory.json",
@@ -127,9 +91,15 @@
 					"type": "dir",
 					"children": [
 						{
-							"name": "a.page.js",
+							"name": "fake.page.js",
 							"path": "fake/a",
-							"full": "fake/a/a.page.js",
+							"full": "fake/a/fake.page.js",
+							"type": "file"
+						},
+						{
+							"name": "page.js",
+							"path": "fake/a",
+							"full": "fake/a/page.js",
 							"type": "file"
 						}
 					]
@@ -155,12 +125,6 @@
 					]
 				},
 				{
-					"name": "fake.page.js",
-					"path": "fake",
-					"full": "fake/fake.page.js",
-					"type": "file"
-				},
-				{
 					"name": "one",
 					"path": "fake",
 					"full": "fake/one",
@@ -173,9 +137,9 @@
 							"type": "dir",
 							"children": [
 								{
-									"name": "a.page.js",
+									"name": "page.js",
 									"path": "fake/one/a",
-									"full": "fake/one/a/a.page.js",
+									"full": "fake/one/a/page.js",
 									"type": "file"
 								}
 							]
@@ -186,8 +150,20 @@
 							"full": "fake/one/b",
 							"type": "dir",
 							"children": []
+						},
+						{
+							"name": "page.js",
+							"path": "fake/one",
+							"full": "fake/one/page.js",
+							"type": "file"
 						}
 					]
+				},
+				{
+					"name": "page.js",
+					"path": "fake",
+					"full": "fake/page.js",
+					"type": "file"
 				},
 				{
 					"name": "test2.page.js",
@@ -328,24 +304,12 @@
 									"type": "file"
 								},
 								{
-									"name": "Base.page.js",
+									"name": "page.js",
 									"path": "framework/core/Base",
-									"full": "framework/core/Base/Base.page.js",
+									"full": "framework/core/Base/page.js",
 									"type": "file"
 								}
 							]
-						},
-						{
-							"name": "core.js",
-							"path": "framework/core",
-							"full": "framework/core/core.js",
-							"type": "file"
-						},
-						{
-							"name": "core.page.js",
-							"path": "framework/core",
-							"full": "framework/core/core.page.js",
-							"type": "file"
 						},
 						{
 							"name": "Events",
@@ -360,6 +324,12 @@
 									"type": "file"
 								}
 							]
+						},
+						{
+							"name": "page.js",
+							"path": "framework/core",
+							"full": "framework/core/page.js",
+							"type": "file"
 						},
 						{
 							"name": "Test",
@@ -421,6 +391,32 @@
 					"full": "framework/ext",
 					"type": "dir",
 					"children": [
+						{
+							"name": "CodeEditor",
+							"path": "framework/ext",
+							"full": "framework/ext/CodeEditor",
+							"type": "dir",
+							"children": [
+								{
+									"name": "CodeEditor.css",
+									"path": "framework/ext/CodeEditor",
+									"full": "framework/ext/CodeEditor/CodeEditor.css",
+									"type": "file"
+								},
+								{
+									"name": "CodeEditor.js",
+									"path": "framework/ext/CodeEditor",
+									"full": "framework/ext/CodeEditor/CodeEditor.js",
+									"type": "file"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/ext/CodeEditor",
+									"full": "framework/ext/CodeEditor/page.js",
+									"type": "file"
+								}
+							]
+						},
 						{
 							"name": "Component",
 							"path": "framework/ext",
@@ -606,37 +602,11 @@
 							]
 						},
 						{
-							"name": "Dir2",
-							"path": "framework/ext",
-							"full": "framework/ext/Dir2",
-							"type": "dir",
-							"children": [
-								{
-									"name": "Dir2.js",
-									"path": "framework/ext/Dir2",
-									"full": "framework/ext/Dir2/Dir2.js",
-									"type": "file"
-								},
-								{
-									"name": "page.js",
-									"path": "framework/ext/Dir2",
-									"full": "framework/ext/Dir2/page.js",
-									"type": "file"
-								}
-							]
-						},
-						{
 							"name": "Directory",
 							"path": "framework/ext",
 							"full": "framework/ext/Directory",
 							"type": "dir",
 							"children": [
-								{
-									"name": "Dir.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/Dir.js",
-									"type": "file"
-								},
 								{
 									"name": "Directory.css",
 									"path": "framework/ext/Directory",
@@ -650,77 +620,9 @@
 									"type": "file"
 								},
 								{
-									"name": "Directory.page.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/Directory.page.js",
-									"type": "file"
-								},
-								{
-									"name": "Directory2.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/Directory2.js",
-									"type": "file"
-								},
-								{
-									"name": "Directory2.page.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/Directory2.page.js",
-									"type": "file"
-								},
-								{
-									"name": "Directory3.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/Directory3.js",
-									"type": "file"
-								},
-								{
-									"name": "Directory3.page.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/Directory3.page.js",
-									"type": "file"
-								},
-								{
-									"name": "File.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/File.js",
-									"type": "file"
-								},
-								{
-									"name": "FrameworkDirectory.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/FrameworkDirectory.js",
-									"type": "file"
-								},
-								{
-									"name": "test.page.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/test.page.js",
-									"type": "file"
-								},
-								{
-									"name": "test2.page.js",
-									"path": "framework/ext/Directory",
-									"full": "framework/ext/Directory/test2.page.js",
-									"type": "file"
-								}
-							]
-						},
-						{
-							"name": "Directory2",
-							"path": "framework/ext",
-							"full": "framework/ext/Directory2",
-							"type": "dir",
-							"children": [
-								{
-									"name": "Directory2.js",
-									"path": "framework/ext/Directory2",
-									"full": "framework/ext/Directory2/Directory2.js",
-									"type": "file"
-								},
-								{
 									"name": "page.js",
-									"path": "framework/ext/Directory2",
-									"full": "framework/ext/Directory2/page.js",
+									"path": "framework/ext/Directory",
+									"full": "framework/ext/Directory/page.js",
 									"type": "file"
 								}
 							]
@@ -1388,12 +1290,6 @@
 			]
 		},
 		{
-			"name": "home.page.js",
-			"path": "./",
-			"full": "home.page.js",
-			"type": "file"
-		},
-		{
 			"name": "index.html",
 			"path": "./",
 			"full": "index.html",
@@ -1522,21 +1418,9 @@
 			]
 		},
 		{
-			"name": "layout.json",
-			"path": "./",
-			"full": "layout.json",
-			"type": "file"
-		},
-		{
 			"name": "lew42.css",
 			"path": "./",
 			"full": "lew42.css",
-			"type": "file"
-		},
-		{
-			"name": "login.js",
-			"path": "./",
-			"full": "login.js",
 			"type": "file"
 		},
 		{
@@ -1648,16 +1532,30 @@
 			]
 		},
 		{
-			"name": "old-index.html",
+			"name": "page.js",
 			"path": "./",
-			"full": "old-index.html",
+			"full": "page.js",
 			"type": "file"
 		},
 		{
-			"name": "server.mjs",
+			"name": "real",
 			"path": "./",
-			"full": "server.mjs",
-			"type": "file"
+			"full": "real",
+			"type": "dir",
+			"children": [
+				{
+					"name": "index.html",
+					"path": "real",
+					"full": "real/index.html",
+					"type": "file"
+				},
+				{
+					"name": "page.js",
+					"path": "real",
+					"full": "real/page.js",
+					"type": "file"
+				}
+			]
 		},
 		{
 			"name": "sitemap.page.js",
@@ -1700,6 +1598,20 @@
 			"type": "dir",
 			"children": [
 				{
+					"name": "$TPL",
+					"path": "test",
+					"full": "test/$TPL",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/$TPL",
+							"full": "test/$TPL/page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "2-plus-columns",
 					"path": "test",
 					"full": "test/2-plus-columns",
@@ -1714,6 +1626,20 @@
 					]
 				},
 				{
+					"name": "3D-scroll",
+					"path": "test",
+					"full": "test/3D-scroll",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/3D-scroll",
+							"full": "test/3D-scroll/page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "404",
 					"path": "test",
 					"full": "test/404",
@@ -1723,20 +1649,6 @@
 							"name": "page.js",
 							"path": "test/404",
 							"full": "test/404/page.js",
-							"type": "file"
-						}
-					]
-				},
-				{
-					"name": "a",
-					"path": "test",
-					"full": "test/a",
-					"type": "dir",
-					"children": [
-						{
-							"name": "a.page.js",
-							"path": "test/a",
-							"full": "test/a/a.page.js",
 							"type": "file"
 						}
 					]
@@ -1840,6 +1752,12 @@
 							"type": "file"
 						}
 					]
+				},
+				{
+					"name": "debug-button.page.js",
+					"path": "test",
+					"full": "test/debug-button.page.js",
+					"type": "file"
 				},
 				{
 					"name": "default",
@@ -2072,6 +1990,26 @@
 							"name": "sub.page.js",
 							"path": "test/nav",
 							"full": "test/nav/sub.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
+					"name": "new-layout",
+					"path": "test",
+					"full": "test/new-layout",
+					"type": "dir",
+					"children": [
+						{
+							"name": "index.html",
+							"path": "test/new-layout",
+							"full": "test/new-layout/index.html",
+							"type": "file"
+						},
+						{
+							"name": "page.js",
+							"path": "test/new-layout",
+							"full": "test/new-layout/page.js",
 							"type": "file"
 						}
 					]
@@ -2520,6 +2458,38 @@
 					]
 				},
 				{
+					"name": "test",
+					"path": "test",
+					"full": "test/test",
+					"type": "dir",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "test/test",
+							"full": "test/test/page.js",
+							"type": "file"
+						},
+						{
+							"name": "squeeze.page.js",
+							"path": "test/test",
+							"full": "test/test/squeeze.page.js",
+							"type": "file"
+						},
+						{
+							"name": "test.css",
+							"path": "test/test",
+							"full": "test/test/test.css",
+							"type": "file"
+						},
+						{
+							"name": "text.page.js",
+							"path": "test/test",
+							"full": "test/test/text.page.js",
+							"type": "file"
+						}
+					]
+				},
+				{
 					"name": "themes",
 					"path": "test",
 					"full": "test/themes",
@@ -2603,12 +2573,6 @@
 			]
 		},
 		{
-			"name": "test.js",
-			"path": "./",
-			"full": "test.js",
-			"type": "file"
-		},
-		{
 			"name": "topic",
 			"path": "./",
 			"full": "topic",
@@ -2635,13 +2599,6 @@
 					]
 				}
 			]
-		},
-		{
-			"name": "undefined",
-			"path": "./",
-			"full": "undefined",
-			"type": "dir",
-			"children": []
 		}
 	]
 }

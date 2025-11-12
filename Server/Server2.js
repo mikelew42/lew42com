@@ -1,19 +1,29 @@
-import Base from "../public/framework/core/Base/Base.js";
+import Server from "./Server.js";
 
 import express from "express";
-import http from "http";
-import url from "url";
 import path from "path";
+import { fileURLToPath } from 'url';
+import http from "http";
+import https from "https";
 import fs from "fs";
-import chokidar from "chokidar";
 
-import SocketServer from "./SocketServer.js";
+import session from "express-session";
+import sfs from "session-file-store";
+const FileStore = sfs(session);
 
+import gal from "google-auth-library";
+const OAuth2Client = gal.OAuth2Client;
+const CLIENT_ID = "722949407087-g0kagkteln7gifhndpifetv5j2prn5a9.apps.googleusercontent.com";
+const client = new OAuth2Client(CLIENT_ID);
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-export default class Server extends Base {
+const prod = process.env.NODE_ENV === 'production';
 
-	initialize(){
+export default class Server2 extends Server {
+
+    initialize(){
 		this.initialize_server();
 		this.listen();
 	}
@@ -31,6 +41,69 @@ export default class Server extends Base {
 	initialize_express_app(){
 		this.express = express;
 		this.express_app = express();
+
+        this.store = new FileStore({
+            path: "../sessions",
+            encoder(data){
+                return JSON.stringify(data, null, 4);
+            }
+        });
+        this.SESSION_SECRET = 'BUNG_HOLE';
+        this.SESSION_NAME = "SESSION_NAME";
+
+        this.express_app.use(session({
+            // Use session-file-store for session storage
+            store: this.store, 
+            secret: this.SESSION_SECRET, // Used to sign the session ID cookie
+            name: this.SESSION_NAME,
+            resave: false, // Don't save session if unmodified
+            saveUninitialized: false, // Don't create session until something is stored
+            cookie: { 
+                maxAge: 1000 * 60 * 60 * 24, // 1 day in milliseconds
+                httpOnly: true, // Prevents client-side JS from reading the cookie
+                secure: prod, // Use 'true' in production with HTTPS
+                sameSite: 'lax', // Protects against some CSRF attacks
+            }
+        }));
+
+        this.express_app.post('/auth/google-one-tap', express.json(), async (req, res) => {
+            const { credential } = req.body;
+
+            try {
+                // 1. Verify the ID Token
+                const ticket = await client.verifyIdToken({
+                    idToken: credential,
+                    audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
+                });
+                const payload = ticket.getPayload();
+                const userId = payload['sub'];
+                const userEmail = payload['email']; 
+                // console.log(payload); // Contains all user info
+
+                // 2. User Authentication/Registration
+                // Check if user exists in your database. 
+                // If not, create a new user record.
+
+                // 3. Establish Session
+                // Store critical user info in the session
+                req.session.userId = userId; 
+                req.session.email = userEmail;
+                req.session.isLoggedIn = true;
+                req.session.picture = payload.picture;
+
+                // Optional: Save the session explicitly if you need to ensure it's saved 
+                // before the response is sent (e.g., for async operations)
+                req.session.save(err => {
+                if (err) return res.status(500).json({ success: false, message: 'Session error' });
+                res.json({ success: true, message: 'Login successful' });
+                });
+                
+            } catch (error) {
+                console.error('Token verification failed:', error);
+                res.status(401).json({ success: false, message: 'Authentication failed' });
+            }
+        });
+
 		this.express_app.use(express.static("public", { redirect: false }));
         this.express_app.use((req, res, next) => {
             console.log("req.path", req.path);
@@ -40,190 +113,69 @@ export default class Server extends Base {
                 return res.status(404).end();
             }
 
-            var url;
-            // /one/two/  ->  /one/two/two.page.js
-            if (req.path.endsWith("/")){
-                const parts = req.path.split("/").filter(Boolean); // ["one", "two"]
-                const name = parts[parts.length - 1]; // "two"
-
-				const candidate = path.join("public", req.path, "page.js");
-				
-				if (fs.existsSync(candidate)){
-					url = req.path + "page.js"; // "/one/two/page.js"
-				} else {
-                	url = req.path + name + ".page.js"; // "/one/two/two.page.js"
-				}
-
-            // /one/two  ->  /one/two.page.js
-            } else {
-                url = req.path + ".page.js";
-            }
-
-			// this doesn't 404 when there is no 
-				return res.send(
-`<!DOCTYPE html>
-<html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script type="module">
-		const mod = await import("${url}");
-		mod.default?.render?.();
-	</script>
-</head>
-<body></body>
-</html>`	);
+            res.sendFile(path.join(__dirname, '../public', 'index.html'));
             
         });
 	}
 
+    initialize_http_server(){
+        if (prod){
+            // The domain name is used as the directory name
+            const domainName = 'lew42.com'; 
 
-	initialize_http_server(){
-		this.http_server = http.createServer(this.express_app);
+            // Correctly constructed absolute paths
+            const privateKeyPath = `/etc/letsencrypt/live/${domainName}/privkey.pem`;
+            const certificatePath = `/etc/letsencrypt/live/${domainName}/fullchain.pem`;
+
+            const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
+            const certificate = fs.readFileSync(certificatePath, 'utf8');
+
+            const credentials = { key: privateKey, cert: certificate };
+
+            this.http_server = https.createServer(credentials, this.express_app);
+        } else {
+            this.http_server = http.createServer(this.express_app);
+        }
+    }
+
+    listen(){
+        if (prod){
+            this.http_server.listen(443, () => {
+                console.log("Listening [port 443, !!!! PROD !!!! ] (" + this.webroot + ")");
+            });
+        } else {
+            this.http_server.listen(80, '0.0.0.0', () => {
+                console.log("Listening [port 80, not prod] (" + this.webroot + ")");
+            });
+        }
 	}
-
-	initialize_sockets(){
-		this.socket_server = new this.constructor.SocketServer({ 
-			http_server: this.http_server,
-			server: this
-		});
-	}
-
-	listen(){
-		this.http_server.listen(80, '0.0.0.0', () => {
-			console.log("Listening (" + this.webroot + ")");
-		});
-	}
-
-	initialize_directorize_framework(){
-		// this.watcher = chokidar.watch([ 
-		// 	"./public/",
-		// 	"!**/*.json",
-		// 	"!**/.git/**", 
-		// 	"!**/node_modules/**" ], { ignoreInitial: true });
-		
-		this.watcher = chokidar.watch("public", {
-			ignored: (path, stats) => {
-				if (stats && stats.isDirectory()) return false; // ignore directories
-				return path.endsWith(".json") || path.includes(".git") || path.includes("node_modules");
-			},
-			ignoreInitial: true
-		});
-
-		// this.watcher.on("ready", () => {
-		// 	console.log(this.watcher.getWatched());
-		// });
-
-		this.watcher.on("add", this.update_framework_directories.bind(this));
-		// this.watcher.on("addDir", this.update_framework_directories.bind(this));
-		this.watcher.on("unlink", this.update_framework_directories.bind(this));
-		// this.watcher.on("unlinkDir", this.update_framework_directories.bind(this));
-		// this.watcher.on("all", (event, path) => {
-		// 	console.log("all", event, path);
-		// });
-
-		this.update_framework_directories("initial");
-	}
-
-	save(){
-		if (!this.saving)
-			this.saving = setTimeout(this.send, 0);
-	}
-
-	send(){
-		console.log("writing file", this.full);
-		this.constructor.socket.rpc("write", this.full, JSON.stringify(this.data, null, 4));
-		this.saving = false;
-	}
-
-	/**
-	 * Multiple file/folder changes can happen with one "rmdir" command => triggers 3 events, 3 rewrites.  We need to debounce.
-	 */
-	update_framework_directories(e, t, th){
-		
-		if (!this.rebuilding){
-			this.rebuilding = setTimeout(() => {
-				console.log("Rebuilding Framework Directories");
-				fs.writeFileSync("./public/directory.json", JSON.stringify({ files: this.build_dir("./public/") }, null, "\t"));
-				fs.writeFileSync("./public/framework/directory.json", JSON.stringify({ files: this.build_dir("./public/framework/") }, null, "\t"));
-				// if (!e.includes("notes")){
-					this.socket_server.changed(e);
-				// }
-				this.rebuilding = false;
-			}, 0);
-		}
-	}
-
-	build_dir(dir, parent){
-		const data = fs.readdirSync(dir, { withFileTypes: true });
-
-		// console.log(dir, data);
-
-		const result = data.map(file => {
-			const new_file = {};
-			// new_file
-			// console.log(file);
-
-			new_file.name = file.name;
-			new_file.path = file.path.replace(/\\/g, '/').replace("public/", '');
-			new_file.full = path.join(new_file.path, new_file.name).replace(/\\/g, '/');
-			if (file.isFile()){
-				// console.log("it's a file...");
-				new_file.type = "file";
-			} else {
-				new_file.type = "dir";
-				// console.log("it's a dir...");
-				if (new_file.name !== ".git" && new_file.name !== "node_modules"){
-					new_file.children = this.build_dir(path.join(dir, file.name));
-				} else {
-					new_file.children = [];
-				}
-			}
-
-			return new_file;
-		});
-
-		// console.log(result);
-
-		return result;
-	}
-
-	build_dir2(dir, parent) {
-		const base = path.resolve('./public/'); // base path to strip
-
-		console.log("BASE", base);
-		const data = fs.readdirSync(dir, { withFileTypes: true });
-
-		const result = data.map(file => {
-			const new_file = {};
-			new_file.old = file;
-			new_file.name = file.name;
-			new_file.path = file.path.replace(/\\/g, '/');
-			let full = path.join(new_file.path, new_file.name).replace(/\\/g, '/');
-
-			// Normalize and strip base path
-			full = path.resolve(full).replace(base, '').replace(/\\/g, '/');
-			// if (!full.startsWith('/')) full = '/' + full;
-
-			new_file.full = full;
-
-			if (file.isFile()) {
-				new_file.type = 'file';
-			} else {
-				new_file.type = 'dir';
-				if (new_file.name !== '.git' && new_file.name !== 'node_modules') {
-					new_file.children = this.build_dir(path.join(dir, file.name));
-				} else {
-					new_file.children = [];
-				}
-			}
-
-			return new_file;
-		});
-
-		return result;
-	}
-
-
 }
 
-Server.SocketServer = SocketServer;
+/**
+ * export default {
+    directorize: true,
+    initialize(){
+        this.initialize_server();
+ 
+        // this is bad, won't work unless I set this up similarly...
+        this.express_app.use("/three.js", this.express.static(this.dirname + "/../../three.js/"));
+        this.listen();
+    },
+ 
+    initialize_http_server(){
+        const dirname = path.dirname(url.fileURLToPath(import.meta.url))
+        const privateKey = fs.readFileSync(path.join(dirname, 'key.pem'), 'utf8');
+        const certificate = fs.readFileSync(path.join(dirname, 'cert.pem'), 'utf8');
+        const credentials = { key: privateKey, cert: certificate };
+        // this.https_server = https.createServer(credentials, this.express_app);
+        this.http_server = https.createServer(credentials, this.express_app);
+        // this.http_server = http.createServer(this.express_app);
+    },
+ 
+    listen(){
+        this.http_server.listen(443, () => {
+            console.log("HTTPS Secure Server running on port 443");
+        });
+    }
+ };
+ */

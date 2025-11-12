@@ -1,6 +1,3 @@
-// import Events from "../module/Events/Events.js";
-import Base from "../public/framework/core/Base/Base.js";
-
 import fs from "fs";
 import path from "path";
 
@@ -24,8 +21,13 @@ I don't believe this properly closes the sockets...
 Also, if we have a handle on the server, how do we emit messages?
 Do we have to loop through server.socket_server.sockets?
 */
-export default class SocketServer extends Base {
+export default class SocketServer {
 	count = 0;
+
+	constructor(...args){
+		Object.assign(this, ...args);
+		this.initialize();
+	}
 
 	initialize(){
 		this.wss = new WebSocketServer({
@@ -83,7 +85,11 @@ export default class SocketServer extends Base {
 	}
 }
 
-class Socket extends Base {
+class Socket {
+	constructor(...args){
+		Object.assign(this, ...args);
+		this.initialize();
+	}
 	initialize(){
 		this.ws.on("message", this.message.bind(this));
 		this.ws.on("close", () => {
@@ -94,8 +100,6 @@ class Socket extends Base {
 
 		// const thing = new ServerThing();
 		// thing.thing();
-
-		// console.log("SOCKET szzzzzdfyy");
 
 		const req = this.req;
 		const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
