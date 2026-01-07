@@ -1,4 +1,4 @@
-import { View as _View } from "/framework/core/core.js";
+import { View as _View } from "/framework/core/View/View.js";
 import Socket from "/framework/ext/Socket/Socket.js";
 
 
@@ -22,15 +22,15 @@ class View extends _View {
     }
 }
 
-View.stylesheet("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap").on("load", () => {
-    console.log("Montserrat loaded");
-});
+// View.stylesheet("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap").on("load", () => {
+//     console.log("Montserrat loaded");
+// });
 
 function lorem(){
     p("Lorem ipsum dolor sit amet consectetur. Non pellentesque cum ipsum pretium nibh id elementum nunc sagittis. Id auctor neque donec ultrices lectus facilisis at vulputate. Nisl eget sapien sit tellus.")
 }
 
-View.body().init();
+// View.body().init();
 
 const { el, div, p, h3 } = View.elements();
 

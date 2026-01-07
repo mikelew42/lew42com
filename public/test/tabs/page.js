@@ -1,4 +1,4 @@
-import { el, div, Base, View } from "/app.js";
+import { el, div, View } from "/app.js";
 
 
 el("style", `

@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, p, is, Base } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, p, is } from "/app.js";
 
 // div.c("well", () => {
 //     app.directory.render();

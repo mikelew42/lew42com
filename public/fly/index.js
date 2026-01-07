@@ -2,11 +2,14 @@
 // import { OrbitControls } from '/three.js/examples/jsm/controls/OrbitControls.js';
 // import { GLTFLoader } from "/three.js/examples/jsm/loaders/GLTFLoader.js";
 
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+// import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+// import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+// import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'https://unpkg.com/three@0.181.2/build/three.module.js';
+// import { OrbitControls } from 'https://unpkg.com/three@0.181.2/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://unpkg.com/three@0.181.2/examples/jsm/loaders/GLTFLoader.js';
 
-import { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/framework/core/App/App.js";
+import { App, el, div, View, h1, h2, h3, p, is, icon } from "/framework/core/App/App.js";
 
 View.body().init();
 

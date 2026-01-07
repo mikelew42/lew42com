@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, icon, p, is, Base, test, lorem } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, icon, p, is, test, lorem } from "/app.js";
 import Layout from "/framework/ext/Layout/Layout.js";
 
 app.$root.ac("pad");

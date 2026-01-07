@@ -1,4 +1,4 @@
-import { el, div, p, Base, View, h1, h2, h3 } from "/framework/core/core.js";
+import { el, div, p, View, h1, h2, h3 } from "/framework/core/core.js";
 import Socket from "/framework/ext/Socket/Socket.js";
 import { tabs, tab } from "/framework/ext/HashRouter/HashTabs.js";
 

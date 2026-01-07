@@ -1,10 +1,22 @@
-import { el, div, h1, app } from "/app.js";
+import { el, div, h1, app, p } from "/app.js";
 import sub from "./sub.page.js";
 
-app.$root.ac("pad");
-h1("Test / Page");
+// app.$root.ac("page");
 
-app.lorem();
+
+div.c("flex auto", () => {
+    div.c("left", () => {
+        p("Left");
+    });
+    div.c("page", () => {
+        h1("Test / Page");
+        
+        p().filler("2-4s");
+    });
+});
+
+// app.directory.render().ac("white");
+
 
 sub.link();
 // console.log("this is /page/page.js");

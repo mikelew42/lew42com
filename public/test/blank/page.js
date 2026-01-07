@@ -1,4 +1,4 @@
-import { el, div, View, h1, h2, h3, icon, p, is, Base } from "/framework/core/View/View.js";
+import { el, div, View, h1, h2, h3, icon, p, is } from "/framework/core/View/View.js";
 import Socket from "/framework/ext/Socket/Socket.js";
 
 Socket.singleton();

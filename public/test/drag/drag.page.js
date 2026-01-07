@@ -1,4 +1,4 @@
-import { app, el, div, View, h1, h2, h3, p, is, Base, test, Test, Events } from "/app.js";;
+import { app, el, div, View, h1, h2, h3, p, is, test, Test, Events } from "/app.js";;
 import List from "./List.js";
 import List0 from "./List0.js";
 import List1 from "./List1.js";

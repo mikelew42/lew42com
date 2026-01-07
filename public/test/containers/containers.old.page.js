@@ -1,4 +1,4 @@
-import app, { App, View as _View, is, Base, icon } from "/app.js";
+import app, { App, View as _View, is, icon } from "/app.js";
 import Draggable from "/framework/ext/Draggable/Draggable.js";
 
 // const resize_cbs = [];

@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, icon, p, is, Base, test, lorem } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, icon, p, is, test } from "/app.js";
 import Layout from "/framework/ext/Layout/Layout.js";
 
 // app.$root.ac("pad");
@@ -46,7 +46,7 @@ div.c("section", () => {
                 div.c("image-wrap", div.c("fake-image"));
                 div.c("content-wrap", () => {
                     h3("Really Important Note");
-                    lorem();
+                    p().filler("2-4s");
                     app.checklist("padding", "flex", "grow", "wrap", "min/max", "lorem, content length")
                 });
             });
@@ -59,14 +59,15 @@ div.c("section", () => {
         div.c("column", () => {
             div.c("card left", () => {
                 div.c("fake-image");
-                lorem();
+                p().filler("2-4s");
                 app.checklist("padding", "flex", "grow", "wrap", "min/max", "lorem, content length")
             });
         });
         div.c("column", () => {    
             div.c("card right", () => {
                 div.c("fake-image");
-                lorem();lorem();
+                p().filler("2-4s");
+                p().filler("2-4s");
             });
         });
     });
@@ -78,20 +79,22 @@ div.c("section", () => {
         div.c("column", () => {
             div.c("card left", () => {
                 div.c("fake-image");
-                lorem();
+                p().filler("2-4s");
                 app.checklist("padding", "flex", "grow", "wrap", "min/max", "lorem, content length")
             });
         });
         div.c("column", () => {    
             div.c("card right", () => {
                 div.c("fake-image");
-                lorem();lorem();
+                p().filler("2-4s");
+                p().filler("2-4s");
             });
         });        
         div.c("column", () => {    
             div.c("card right", () => {
                 div.c("fake-image");
-                lorem();lorem();
+                p().filler("2-4s");
+                p().filler("2-4s");
             });
         });
     });

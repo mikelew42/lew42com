@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, p, is, icon } from "/app.js";
 // import HashRunner from "/framework/App/HashRunner.js";
 
 // await app.ready; !!! can't await in page... 

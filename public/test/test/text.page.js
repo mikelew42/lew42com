@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon, style } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, p, is, icon, style } from "/app.js";
 
 app.stylesheet("test.css");
 // not using import.meta would cause this to fail, if you imported this page somewhere else...

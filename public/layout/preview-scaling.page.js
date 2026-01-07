@@ -1,6 +1,6 @@
-import app, { App, el, div, View, h1, h2, h3, icon, p, is, Base, test } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, icon, p, is, test } from "/app.js";
 
-View.stylesheet("test2.css");
+// View.stylesheet("test2.css");
 
 el("style", `
 

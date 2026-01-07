@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, p, is, icon } from "/app.js";
 
 el("style", `
     #root { background-position: 50% 50%; background-size: cover; color: white;  }    

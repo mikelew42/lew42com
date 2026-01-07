@@ -1,4 +1,4 @@
-import { el, div, View, h1, h2, h3, p, is, Base, icon, style } from "/framework/core/View/View.js";
+import { el, div, View, h1, h2, h3, p, is, icon, style } from "/framework/core/View/View.js";
 import "/framework/ext/Lorem/Lorem.js";
 
 import Socket from "/framework/ext/Socket/Socket.js";

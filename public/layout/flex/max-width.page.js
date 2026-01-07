@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, icon, p, is, Base, test, lorem } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, icon, p, is, test } from "/app.js";
 import Layout from "/framework/ext/Layout/Layout.js";
 
 app.$root.ac("pad");
@@ -20,12 +20,13 @@ h1("Layout / Flex / Max-Width");
 div.c("flex gap wrap", () => {
     div.c("card left", () => {
         div.c("fake-image");
-        lorem();
+        p().filler("2-4s");
         app.checklist("padding", "flex", "grow", "wrap", "min/max", "lorem, content length")
     });
     div.c("card right", () => {
         div.c("fake-image");
-        lorem();lorem();
+        p().filler("2-4s");
+        p().filler("2-4s");
     });
     // div.c("card right", () => {
     //     div(div.c("fake-image"),

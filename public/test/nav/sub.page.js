@@ -1,4 +1,4 @@
-import { el, div, p, Base, View, h1, h2, h3 } from "/app.js";
+import { el, div, p, View, h1, h2, h3 } from "/app.js";
 import Page from "./Page.class.js";
 
 export default new Page({

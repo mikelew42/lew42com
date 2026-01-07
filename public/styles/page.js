@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, icon, p, is, Base, test } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, icon, p, is, test } from "/app.js";
 import HashRouter from "../framework/ext/HashRouter/HashRouter.js";
 import { tab, tabs } from "../framework/ext/HashRouter/HashTabs.js";
 
@@ -6,13 +6,13 @@ app.$root.ac("pad");
 
 h1("styles");
 
-tabs.c("white vertical", () => {
+tabs.c("white horizontal", () => {
     tab("Text", t => {
-        t.style("padding", "2em 3em");
+        // t.style("padding", "2em 3em");
         h1("This is an H1 Heading");
         p("This is a paragraph.");
         h2("This is an H2 Heading");
-        tabs.c("light vertical", () => {
+        tabs.c("light horizontal", () => {
             tab("Font Weight", () => {
                 p("fw-1) This is a lot of setup to create a note.  I'm afraid this isn't the right UX for me.  However, one day, this will be my note maker.").ac("fw-1");   
                 p("fw-2) This is a lot of setup to create a note.  I'm afraid this isn't the right UX for me.  However, one day, this will be my note maker.").ac("fw-2");   
@@ -29,7 +29,7 @@ tabs.c("white vertical", () => {
         });
     });
     tab("UI", () => {
-        tabs.c("light vertical", () => {
+        tabs.c("light horizontal", () => {
             tab("button", () => {
                 el.c("button", "prim fw-6", "JOIN");
                 el.c("button", "prim", "test").click(function(){

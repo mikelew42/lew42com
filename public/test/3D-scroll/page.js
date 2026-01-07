@@ -1,9 +1,9 @@
-import app, { App, el, div, View, h1, h2, h3, p, is, Base, icon, style } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, p, is, icon, style } from "/app.js";
 
-app.$root.ac("pad light");
+app.$root.ac("page");
 
 style(`
-    #root { background: white;transform-style: preserve-3d; max-width: 80%; margin: 0 auto; perspective: 3000px; transition: transform 0.2s ease-out; }
+    .root { background: white;transform-style: preserve-3d; max-width: 80%; margin: 0 auto; perspective: 3000px; transition: transform 0.2s ease-out; }
     body { perspective: 1000px; }
 `);
 
@@ -55,7 +55,7 @@ const sceneContainer = document.querySelector('.scene-container-parent');
 // NOTE: 'perspective' is typically applied to the parent of the rotated element.
 // Make sure this selector targets the element with the CSS 'perspective' set.
 
-
+const bg = app.$app.main.background;
 /**
  * Calculates the scroll percentage and updates the perspective origin (Y-axis).
  */
@@ -64,10 +64,12 @@ function updatePerspectiveOrigin() {
     // debugger;
   // 1. Calculate Scroll Metrics
   // The distance the user has scrolled from the top (0 at top, maxScroll at bottom)
-  const scrollY = window.scrollY;
+  const scrollY = bg.el.scrollTop;
   
   // The total scrollable height of the document (body height - viewport height)
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const maxScroll = bg.el.scrollHeight - bg.el.clientHeight;
+
+//   debugger;
   
   // Handle the case where there is no scrollable content to prevent division by zero
   if (maxScroll <= 0) {
@@ -80,7 +82,8 @@ function updatePerspectiveOrigin() {
 
   // 3. Map to CSS Percentage
   // Convert the 0-1 range to a 0-100% string value
-  const originY = Math.round(scrollPercent * 100);
+//   const originY = Math.round(scrollPercent * 100);
+  const originY = scrollPercent*200;
 
   // 4. Apply the Transform
   // Set the perspective origin. X is fixed at 50% (center), Y is the scroll percentage.
@@ -101,8 +104,9 @@ app.ready.then(() => {
     }, 0);
 });
 
+
 // 2. Attach the function to the scroll event for dynamic updates
-window.addEventListener('scroll', updatePerspectiveOrigin);
+bg.on('scroll', updatePerspectiveOrigin);
 
 // 3. Attach to resize event to recalculate maxScroll when the window size changes
 window.addEventListener('resize', updatePerspectiveOrigin);
@@ -140,14 +144,44 @@ document.addEventListener('mousemove', () => {
 });
 
 p().filler("2-4s").style("transform", "translateZ(100px)");
-p().filler("2-4s").style("transform", "translateZ(-100px)");
+p().filler("2-4s").style("transform", "translateZ(500px)");
 p().filler("2-4s").style("transform", "translateZ(200px)");
-p().filler("2-4s").style("transform", "translateZ(-200px)");
+p().filler("2-4s").style("transform", "translateZ(100px)");
 p().filler("2-4s").style("transform", "translateZ(300px)");
 p().filler("2-4s");
 
 div.c("layout gap", () => {
-    div(p().filler("2-4s").style("background", "var(--bg)").style("color", "white")).style("transform", "translateZ(300px)");
+    div(p().filler("2-4s").style("padding", "1em").style("background", "var(--bg)").style("color", "white")).style("transform", "translateZ(300px)");
+    div(p().filler("2-4s")).style("transform", "translateZ(100px)")
+}).style("transform", "translateZ(300px)").style("transform-style", "preserve-3d");
+p().filler("2-4s");
+
+
+
+p().filler("2-4s").style("transform", "translateZ(200px)");
+p().filler("2-4s").style("transform", "translateZ(50px)");
+p().filler("2-4s").style("transform", "translateZ(200px)");
+p().filler("2-4s").style("transform", "translateZ(100px)");
+p().filler("2-4s").style("transform", "translateZ(300px)");
+p().filler("2-4s");
+
+div.c("layout gap", () => {
+    div(p().filler("2-4s")).style("transform", "translateZ(100px)")
+    div(p().filler("2-4s").style("padding", "1em").style("background", "var(--bg)").style("color", "white")).style("transform", "translateZ(300px)");
+}).style("transform", "translateZ(300px)").style("transform-style", "preserve-3d");
+p().filler("2-4s");
+
+
+
+p().filler("2-4s").style("transform", "translateZ(100px)");
+p().filler("2-4s").style("transform", "translateZ(50px)");
+p().filler("2-4s").style("transform", "translateZ(200px)");
+p().filler("2-4s").style("transform", "translateZ(50px)");
+p().filler("2-4s").style("transform", "translateZ(300px)");
+p().filler("2-4s");
+
+div.c("layout gap", () => {
+    div(p().filler("2-4s").style("padding", "1em").style("background", "var(--bg)").style("color", "white")).style("transform", "translateZ(300px)");
     div(p().filler("2-4s")).style("transform", "translateZ(100px)")
 }).style("transform", "translateZ(300px)").style("transform-style", "preserve-3d");
 p().filler("2-4s");
@@ -155,45 +189,15 @@ p().filler("2-4s");
 
 
 p().filler("2-4s").style("transform", "translateZ(100px)");
-p().filler("2-4s").style("transform", "translateZ(-100px)");
+p().filler("2-4s").style("transform", "translateZ(500px)");
 p().filler("2-4s").style("transform", "translateZ(200px)");
-p().filler("2-4s").style("transform", "translateZ(-200px)");
+p().filler("2-4s").style("transform", "translateZ(50px)");
 p().filler("2-4s").style("transform", "translateZ(300px)");
 p().filler("2-4s");
 
 div.c("layout gap", () => {
     div(p().filler("2-4s")).style("transform", "translateZ(100px)")
-    div(p().filler("2-4s").style("background", "var(--bg)").style("color", "white")).style("transform", "translateZ(300px)");
-}).style("transform", "translateZ(300px)").style("transform-style", "preserve-3d");
-p().filler("2-4s");
-
-
-
-p().filler("2-4s").style("transform", "translateZ(100px)");
-p().filler("2-4s").style("transform", "translateZ(-100px)");
-p().filler("2-4s").style("transform", "translateZ(200px)");
-p().filler("2-4s").style("transform", "translateZ(-200px)");
-p().filler("2-4s").style("transform", "translateZ(300px)");
-p().filler("2-4s");
-
-div.c("layout gap", () => {
-    div(p().filler("2-4s").style("background", "var(--bg)").style("color", "white")).style("transform", "translateZ(300px)");
-    div(p().filler("2-4s")).style("transform", "translateZ(100px)")
-}).style("transform", "translateZ(300px)").style("transform-style", "preserve-3d");
-p().filler("2-4s");
-
-
-
-p().filler("2-4s").style("transform", "translateZ(100px)");
-p().filler("2-4s").style("transform", "translateZ(-100px)");
-p().filler("2-4s").style("transform", "translateZ(200px)");
-p().filler("2-4s").style("transform", "translateZ(-200px)");
-p().filler("2-4s").style("transform", "translateZ(300px)");
-p().filler("2-4s");
-
-div.c("layout gap", () => {
-    div(p().filler("2-4s")).style("transform", "translateZ(100px)")
-    div(p().filler("2-4s").style("background", "var(--bg)").style("color", "white")).style("transform", "translateZ(300px)");
+    div(p().filler("2-4s").style("padding", "1em").style("background", "var(--bg)").style("color", "white")).style("transform", "translateZ(300px)");
 }).style("transform", "translateZ(300px)").style("transform-style", "preserve-3d");
 p().filler("2-4s");
 

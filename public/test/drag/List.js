@@ -1,4 +1,4 @@
-import { App, el, div, View, h1, h2, h3, p, is, Base, test, Test, Events } from "/app.js";;
+import { App, el, div, View, h1, h2, h3, p, is, test, Test, Events } from "/app.js";;
 
 function findClosestNumber(array, inputNumber) {
 	// debugger;

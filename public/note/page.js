@@ -1,4 +1,4 @@
-import app, { App, el, div, View, h1, h2, h3, icon, p, is, Base, test } from "/app.js";
+import app, { App, el, div, View, h1, h2, h3, icon, p, is, test } from "/app.js";
 
 div.c("card", () => {
     h1("First note:");
