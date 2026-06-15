@@ -289,10 +289,22 @@
 									"full": "framework/core/App/exported_fn.page.js"
 								},
 								{
+									"name": "imported.page.js",
+									"path": "framework/core/App",
+									"type": "file",
+									"full": "framework/core/App/imported.page.js"
+								},
+								{
 									"name": "page.js",
 									"path": "framework/core/App",
 									"type": "file",
 									"full": "framework/core/App/page.js"
+								},
+								{
+									"name": "ViteApp.js",
+									"path": "framework/core/App",
+									"type": "file",
+									"full": "framework/core/App/ViteApp.js"
 								}
 							]
 						},
@@ -363,6 +375,12 @@
 							"full": "framework/core/Test",
 							"children": [
 								{
+									"name": "page.js",
+									"path": "framework/core/Test",
+									"type": "file",
+									"full": "framework/core/Test/page.js"
+								},
+								{
 									"name": "Test.css",
 									"path": "framework/core/Test",
 									"type": "file",
@@ -383,10 +401,22 @@
 							"full": "framework/core/View",
 							"children": [
 								{
+									"name": "file.js",
+									"path": "framework/core/View",
+									"type": "file",
+									"full": "framework/core/View/file.js"
+								},
+								{
 									"name": "page.js",
 									"path": "framework/core/View",
 									"type": "file",
 									"full": "framework/core/View/page.js"
+								},
+								{
+									"name": "ResizeObserver.js",
+									"path": "framework/core/View",
+									"type": "file",
+									"full": "framework/core/View/ResizeObserver.js"
 								},
 								{
 									"name": "View.js",
@@ -399,10 +429,108 @@
 					]
 				},
 				{
+					"name": "css",
+					"path": "framework",
+					"type": "dir",
+					"full": "framework/css",
+					"children": [
+						{
+							"name": "page.js",
+							"path": "framework/css",
+							"type": "file",
+							"full": "framework/css/page.js"
+						}
+					]
+				},
+				{
 					"name": "directory.json",
 					"path": "framework",
 					"type": "file",
 					"full": "framework/directory.json"
+				},
+				{
+					"name": "dum",
+					"path": "framework",
+					"type": "dir",
+					"full": "framework/dum",
+					"children": [
+						{
+							"name": "contact.js",
+							"path": "framework/dum",
+							"type": "file",
+							"full": "framework/dum/contact.js"
+						},
+						{
+							"name": "dum.css",
+							"path": "framework/dum",
+							"type": "file",
+							"full": "framework/dum/dum.css"
+						},
+						{
+							"name": "dum.js",
+							"path": "framework/dum",
+							"type": "file",
+							"full": "framework/dum/dum.js"
+						},
+						{
+							"name": "image",
+							"path": "framework/dum",
+							"type": "dir",
+							"full": "framework/dum/image",
+							"children": [
+								{
+									"name": "image.js",
+									"path": "framework/dum/image",
+									"type": "file",
+									"full": "framework/dum/image/image.js"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/dum/image",
+									"type": "file",
+									"full": "framework/dum/image/page.js"
+								}
+							]
+						},
+						{
+							"name": "list",
+							"path": "framework/dum",
+							"type": "dir",
+							"full": "framework/dum/list",
+							"children": [
+								{
+									"name": "animals.js",
+									"path": "framework/dum/list",
+									"type": "file",
+									"full": "framework/dum/list/animals.js"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/dum/list",
+									"type": "file",
+									"full": "framework/dum/list/page.js"
+								},
+								{
+									"name": "users.js",
+									"path": "framework/dum/list",
+									"type": "file",
+									"full": "framework/dum/list/users.js"
+								}
+							]
+						},
+						{
+							"name": "page.js",
+							"path": "framework/dum",
+							"type": "file",
+							"full": "framework/dum/page.js"
+						},
+						{
+							"name": "readme.md",
+							"path": "framework/dum",
+							"type": "file",
+							"full": "framework/dum/readme.md"
+						}
+					]
 				},
 				{
 					"name": "ext",
@@ -442,6 +570,78 @@
 							"type": "dir",
 							"full": "framework/ext/Component",
 							"children": [
+								{
+									"name": "0",
+									"path": "framework/ext/Component",
+									"type": "dir",
+									"full": "framework/ext/Component/0",
+									"children": [
+										{
+											"name": "component-0.json",
+											"path": "framework/ext/Component/0",
+											"type": "file",
+											"full": "framework/ext/Component/0/component-0.json"
+										},
+										{
+											"name": "Component0.js",
+											"path": "framework/ext/Component/0",
+											"type": "file",
+											"full": "framework/ext/Component/0/Component0.js"
+										},
+										{
+											"name": "faster.json",
+											"path": "framework/ext/Component/0",
+											"type": "file",
+											"full": "framework/ext/Component/0/faster.json"
+										},
+										{
+											"name": "other.json",
+											"path": "framework/ext/Component/0",
+											"type": "file",
+											"full": "framework/ext/Component/0/other.json"
+										},
+										{
+											"name": "page.js",
+											"path": "framework/ext/Component/0",
+											"type": "file",
+											"full": "framework/ext/Component/0/page.js"
+										},
+										{
+											"name": "sub",
+											"path": "framework/ext/Component/0",
+											"type": "dir",
+											"full": "framework/ext/Component/0/sub",
+											"children": [
+												{
+													"name": "component-0.json",
+													"path": "framework/ext/Component/0/sub",
+													"type": "file",
+													"full": "framework/ext/Component/0/sub/component-0.json"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "1",
+									"path": "framework/ext/Component",
+									"type": "dir",
+									"full": "framework/ext/Component/1",
+									"children": [
+										{
+											"name": "Component1.js",
+											"path": "framework/ext/Component/1",
+											"type": "file",
+											"full": "framework/ext/Component/1/Component1.js"
+										},
+										{
+											"name": "page.js",
+											"path": "framework/ext/Component/1",
+											"type": "file",
+											"full": "framework/ext/Component/1/page.js"
+										}
+									]
+								},
 								{
 									"name": "Component.js",
 									"path": "framework/ext/Component",
@@ -593,10 +793,76 @@
 									"full": "framework/ext/Component/Deep.page.js"
 								},
 								{
+									"name": "File",
+									"path": "framework/ext/Component",
+									"type": "dir",
+									"full": "framework/ext/Component/File",
+									"children": [
+										{
+											"name": "file-component.json",
+											"path": "framework/ext/Component/File",
+											"type": "file",
+											"full": "framework/ext/Component/File/file-component.json"
+										},
+										{
+											"name": "FileComponent.js",
+											"path": "framework/ext/Component/File",
+											"type": "file",
+											"full": "framework/ext/Component/File/FileComponent.js"
+										},
+										{
+											"name": "other.json",
+											"path": "framework/ext/Component/File",
+											"type": "file",
+											"full": "framework/ext/Component/File/other.json"
+										},
+										{
+											"name": "page.js",
+											"path": "framework/ext/Component/File",
+											"type": "file",
+											"full": "framework/ext/Component/File/page.js"
+										},
+										{
+											"name": "parent.json",
+											"path": "framework/ext/Component/File",
+											"type": "file",
+											"full": "framework/ext/Component/File/parent.json"
+										},
+										{
+											"name": "sub",
+											"path": "framework/ext/Component/File",
+											"type": "dir",
+											"full": "framework/ext/Component/File/sub",
+											"children": [
+												{
+													"name": "file-component.json",
+													"path": "framework/ext/Component/File/sub",
+													"type": "file",
+													"full": "framework/ext/Component/File/sub/file-component.json"
+												}
+											]
+										}
+									]
+								},
+								{
 									"name": "page.js",
 									"path": "framework/ext/Component",
 									"type": "file",
 									"full": "framework/ext/Component/page.js"
+								},
+								{
+									"name": "tests",
+									"path": "framework/ext/Component",
+									"type": "dir",
+									"full": "framework/ext/Component/tests",
+									"children": [
+										{
+											"name": "component.json",
+											"path": "framework/ext/Component/tests",
+											"type": "file",
+											"full": "framework/ext/Component/tests/component.json"
+										}
+									]
 								}
 							]
 						},
@@ -606,6 +872,40 @@
 							"type": "dir",
 							"full": "framework/ext/Dir",
 							"children": [
+								{
+									"name": "0",
+									"path": "framework/ext/Dir",
+									"type": "dir",
+									"full": "framework/ext/Dir/0",
+									"children": [
+										{
+											"name": "Dir0.js",
+											"path": "framework/ext/Dir/0",
+											"type": "file",
+											"full": "framework/ext/Dir/0/Dir0.js"
+										},
+										{
+											"name": "page.js",
+											"path": "framework/ext/Dir/0",
+											"type": "file",
+											"full": "framework/ext/Dir/0/page.js"
+										},
+										{
+											"name": "test1",
+											"path": "framework/ext/Dir/0",
+											"type": "dir",
+											"full": "framework/ext/Dir/0/test1",
+											"children": [
+												{
+													"name": "file.ext",
+													"path": "framework/ext/Dir/0/test1",
+													"type": "file",
+													"full": "framework/ext/Dir/0/test1/file.ext"
+												}
+											]
+										}
+									]
+								},
 								{
 									"name": "Dir.js",
 									"path": "framework/ext/Dir",
@@ -673,6 +973,12 @@
 							"full": "framework/ext/Draggable",
 							"children": [
 								{
+									"name": "Draggable.css",
+									"path": "framework/ext/Draggable",
+									"type": "file",
+									"full": "framework/ext/Draggable/Draggable.css"
+								},
+								{
 									"name": "Draggable.js",
 									"path": "framework/ext/Draggable",
 									"type": "file",
@@ -697,110 +1003,36 @@
 									"full": "framework/ext/Draggable/Previewable.js"
 								},
 								{
+									"name": "Rewidth.js",
+									"path": "framework/ext/Draggable",
+									"type": "file",
+									"full": "framework/ext/Draggable/Rewidth.js"
+								},
+								{
 									"name": "Sortable.js",
 									"path": "framework/ext/Draggable",
 									"type": "file",
 									"full": "framework/ext/Draggable/Sortable.js"
 								},
 								{
-									"name": "styles.css",
+									"name": "test",
+									"path": "framework/ext/Draggable",
+									"type": "dir",
+									"full": "framework/ext/Draggable/test",
+									"children": [
+										{
+											"name": "page.js",
+											"path": "framework/ext/Draggable/test",
+											"type": "file",
+											"full": "framework/ext/Draggable/test/page.js"
+										}
+									]
+								},
+								{
+									"name": "todo.md",
 									"path": "framework/ext/Draggable",
 									"type": "file",
-									"full": "framework/ext/Draggable/styles.css"
-								}
-							]
-						},
-						{
-							"name": "Draggable2",
-							"path": "framework/ext",
-							"type": "dir",
-							"full": "framework/ext/Draggable2",
-							"children": [
-								{
-									"name": "Draggable.js",
-									"path": "framework/ext/Draggable2",
-									"type": "file",
-									"full": "framework/ext/Draggable2/Draggable.js"
-								},
-								{
-									"name": "Movable.js",
-									"path": "framework/ext/Draggable2",
-									"type": "file",
-									"full": "framework/ext/Draggable2/Movable.js"
-								},
-								{
-									"name": "page.js",
-									"path": "framework/ext/Draggable2",
-									"type": "file",
-									"full": "framework/ext/Draggable2/page.js"
-								},
-								{
-									"name": "Previewable.js",
-									"path": "framework/ext/Draggable2",
-									"type": "file",
-									"full": "framework/ext/Draggable2/Previewable.js"
-								},
-								{
-									"name": "Sortable.js",
-									"path": "framework/ext/Draggable2",
-									"type": "file",
-									"full": "framework/ext/Draggable2/Sortable.js"
-								},
-								{
-									"name": "styles.css",
-									"path": "framework/ext/Draggable2",
-									"type": "file",
-									"full": "framework/ext/Draggable2/styles.css"
-								}
-							]
-						},
-						{
-							"name": "Draggable3",
-							"path": "framework/ext",
-							"type": "dir",
-							"full": "framework/ext/Draggable3",
-							"children": [
-								{
-									"name": "Constraints.js",
-									"path": "framework/ext/Draggable3",
-									"type": "file",
-									"full": "framework/ext/Draggable3/Constraints.js"
-								},
-								{
-									"name": "Draggable.js",
-									"path": "framework/ext/Draggable3",
-									"type": "file",
-									"full": "framework/ext/Draggable3/Draggable.js"
-								},
-								{
-									"name": "Movable.js",
-									"path": "framework/ext/Draggable3",
-									"type": "file",
-									"full": "framework/ext/Draggable3/Movable.js"
-								},
-								{
-									"name": "page.js",
-									"path": "framework/ext/Draggable3",
-									"type": "file",
-									"full": "framework/ext/Draggable3/page.js"
-								},
-								{
-									"name": "Previewable.js",
-									"path": "framework/ext/Draggable3",
-									"type": "file",
-									"full": "framework/ext/Draggable3/Previewable.js"
-								},
-								{
-									"name": "Sortable.js",
-									"path": "framework/ext/Draggable3",
-									"type": "file",
-									"full": "framework/ext/Draggable3/Sortable.js"
-								},
-								{
-									"name": "styles.css",
-									"path": "framework/ext/Draggable3",
-									"type": "file",
-									"full": "framework/ext/Draggable3/styles.css"
+									"full": "framework/ext/Draggable/todo.md"
 								}
 							]
 						},
@@ -810,6 +1042,64 @@
 							"type": "dir",
 							"full": "framework/ext/File",
 							"children": [
+								{
+									"name": "0",
+									"path": "framework/ext/File",
+									"type": "dir",
+									"full": "framework/ext/File/0",
+									"children": [
+										{
+											"name": "default-data.json",
+											"path": "framework/ext/File/0",
+											"type": "file",
+											"full": "framework/ext/File/0/default-data.json"
+										},
+										{
+											"name": "File0.js",
+											"path": "framework/ext/File/0",
+											"type": "file",
+											"full": "framework/ext/File/0/File0.js"
+										},
+										{
+											"name": "page.js",
+											"path": "framework/ext/File/0",
+											"type": "file",
+											"full": "framework/ext/File/0/page.js"
+										},
+										{
+											"name": "sub",
+											"path": "framework/ext/File/0",
+											"type": "dir",
+											"full": "framework/ext/File/0/sub",
+											"children": [
+												{
+													"name": "test2.json",
+													"path": "framework/ext/File/0/sub",
+													"type": "file",
+													"full": "framework/ext/File/0/sub/test2.json"
+												},
+												{
+													"name": "test4a.json",
+													"path": "framework/ext/File/0/sub",
+													"type": "file",
+													"full": "framework/ext/File/0/sub/test4a.json"
+												}
+											]
+										},
+										{
+											"name": "test1.json",
+											"path": "framework/ext/File/0",
+											"type": "file",
+											"full": "framework/ext/File/0/test1.json"
+										},
+										{
+											"name": "test4.json",
+											"path": "framework/ext/File/0",
+											"type": "file",
+											"full": "framework/ext/File/0/test4.json"
+										}
+									]
+								},
 								{
 									"name": "File.js",
 									"path": "framework/ext/File",
@@ -937,6 +1227,32 @@
 							]
 						},
 						{
+							"name": "Inspector",
+							"path": "framework/ext",
+							"type": "dir",
+							"full": "framework/ext/Inspector",
+							"children": [
+								{
+									"name": "Inspector.css",
+									"path": "framework/ext/Inspector",
+									"type": "file",
+									"full": "framework/ext/Inspector/Inspector.css"
+								},
+								{
+									"name": "Inspector.js",
+									"path": "framework/ext/Inspector",
+									"type": "file",
+									"full": "framework/ext/Inspector/Inspector.js"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/ext/Inspector",
+									"type": "file",
+									"full": "framework/ext/Inspector/page.js"
+								}
+							]
+						},
+						{
 							"name": "Layout",
 							"path": "framework/ext",
 							"type": "dir",
@@ -991,6 +1307,20 @@
 									"path": "framework/ext/Lew42",
 									"type": "file",
 									"full": "framework/ext/Lew42/mlogo.png"
+								},
+								{
+									"name": "styles",
+									"path": "framework/ext/Lew42",
+									"type": "dir",
+									"full": "framework/ext/Lew42/styles",
+									"children": [
+										{
+											"name": "page.js",
+											"path": "framework/ext/Lew42/styles",
+											"type": "file",
+											"full": "framework/ext/Lew42/styles/page.js"
+										}
+									]
 								}
 							]
 						},
@@ -1000,6 +1330,58 @@
 							"type": "dir",
 							"full": "framework/ext/List",
 							"children": [
+								{
+									"name": "Component",
+									"path": "framework/ext/List",
+									"type": "dir",
+									"full": "framework/ext/List/Component",
+									"children": [
+										{
+											"name": "ListComponent.js",
+											"path": "framework/ext/List/Component",
+											"type": "file",
+											"full": "framework/ext/List/Component/ListComponent.js"
+										},
+										{
+											"name": "page.js",
+											"path": "framework/ext/List/Component",
+											"type": "file",
+											"full": "framework/ext/List/Component/page.js"
+										},
+										{
+											"name": "Sortable",
+											"path": "framework/ext/List/Component",
+											"type": "dir",
+											"full": "framework/ext/List/Component/Sortable",
+											"children": [
+												{
+													"name": "page.js",
+													"path": "framework/ext/List/Component/Sortable",
+													"type": "file",
+													"full": "framework/ext/List/Component/Sortable/page.js"
+												},
+												{
+													"name": "test.json",
+													"path": "framework/ext/List/Component/Sortable",
+													"type": "file",
+													"full": "framework/ext/List/Component/Sortable/test.json"
+												}
+											]
+										},
+										{
+											"name": "test.json",
+											"path": "framework/ext/List/Component",
+											"type": "file",
+											"full": "framework/ext/List/Component/test.json"
+										}
+									]
+								},
+								{
+									"name": "List.css",
+									"path": "framework/ext/List",
+									"type": "file",
+									"full": "framework/ext/List/List.css"
+								},
 								{
 									"name": "List.js",
 									"path": "framework/ext/List",
@@ -1017,12 +1399,6 @@
 									"path": "framework/ext/List",
 									"type": "file",
 									"full": "framework/ext/List/page.js"
-								},
-								{
-									"name": "styles.css",
-									"path": "framework/ext/List",
-									"type": "file",
-									"full": "framework/ext/List/styles.css"
 								}
 							]
 						},
@@ -1037,6 +1413,32 @@
 									"path": "framework/ext/Lorem",
 									"type": "file",
 									"full": "framework/ext/Lorem/Lorem.js"
+								}
+							]
+						},
+						{
+							"name": "Markdown",
+							"path": "framework/ext",
+							"type": "dir",
+							"full": "framework/ext/Markdown",
+							"children": [
+								{
+									"name": "example.md",
+									"path": "framework/ext/Markdown",
+									"type": "file",
+									"full": "framework/ext/Markdown/example.md"
+								},
+								{
+									"name": "Markdown.js",
+									"path": "framework/ext/Markdown",
+									"type": "file",
+									"full": "framework/ext/Markdown/Markdown.js"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/ext/Markdown",
+									"type": "file",
+									"full": "framework/ext/Markdown/page.js"
 								}
 							]
 						},
@@ -1357,10 +1759,10 @@
 									"full": "framework/ext/Page/Page.class.js"
 								},
 								{
-									"name": "Page.js",
+									"name": "page.js",
 									"path": "framework/ext/Page",
 									"type": "file",
-									"full": "framework/ext/Page/Page.js"
+									"full": "framework/ext/Page/page.js"
 								}
 							]
 						},
@@ -1433,10 +1835,136 @@
 					]
 				},
 				{
+					"name": "framework-old.css",
+					"path": "framework",
+					"type": "file",
+					"full": "framework/framework-old.css"
+				},
+				{
 					"name": "framework.css",
 					"path": "framework",
 					"type": "file",
 					"full": "framework/framework.css"
+				},
+				{
+					"name": "game",
+					"path": "framework",
+					"type": "dir",
+					"full": "framework/game",
+					"children": [
+						{
+							"name": "Camera",
+							"path": "framework/game",
+							"type": "dir",
+							"full": "framework/game/Camera",
+							"children": [
+								{
+									"name": "Camera.js",
+									"path": "framework/game/Camera",
+									"type": "file",
+									"full": "framework/game/Camera/Camera.js"
+								},
+								{
+									"name": "FollowCamera.js",
+									"path": "framework/game/Camera",
+									"type": "file",
+									"full": "framework/game/Camera/FollowCamera.js"
+								},
+								{
+									"name": "OrbitCamera.js",
+									"path": "framework/game/Camera",
+									"type": "file",
+									"full": "framework/game/Camera/OrbitCamera.js"
+								}
+							]
+						},
+						{
+							"name": "Controller",
+							"path": "framework/game",
+							"type": "dir",
+							"full": "framework/game/Controller",
+							"children": [
+								{
+									"name": "Controller.js",
+									"path": "framework/game/Controller",
+									"type": "file",
+									"full": "framework/game/Controller/Controller.js"
+								},
+								{
+									"name": "Controller.test.js",
+									"path": "framework/game/Controller",
+									"type": "file",
+									"full": "framework/game/Controller/Controller.test.js"
+								}
+							]
+						},
+						{
+							"name": "Game",
+							"path": "framework/game",
+							"type": "dir",
+							"full": "framework/game/Game",
+							"children": [
+								{
+									"name": "Game.js",
+									"path": "framework/game/Game",
+									"type": "file",
+									"full": "framework/game/Game/Game.js"
+								},
+								{
+									"name": "Game.test.js",
+									"path": "framework/game/Game",
+									"type": "file",
+									"full": "framework/game/Game/Game.test.js"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/game/Game",
+									"type": "file",
+									"full": "framework/game/Game/page.js"
+								},
+								{
+									"name": "tests",
+									"path": "framework/game/Game",
+									"type": "dir",
+									"full": "framework/game/Game/tests",
+									"children": [
+										{
+											"name": "page.js",
+											"path": "framework/game/Game/tests",
+											"type": "file",
+											"full": "framework/game/Game/tests/page.js"
+										}
+									]
+								},
+								{
+									"name": "tests.page.js",
+									"path": "framework/game/Game",
+									"type": "file",
+									"full": "framework/game/Game/tests.page.js"
+								}
+							]
+						},
+						{
+							"name": "Player",
+							"path": "framework/game",
+							"type": "dir",
+							"full": "framework/game/Player",
+							"children": [
+								{
+									"name": "Player.js",
+									"path": "framework/game/Player",
+									"type": "file",
+									"full": "framework/game/Player/Player.js"
+								},
+								{
+									"name": "Player.test.js",
+									"path": "framework/game/Player",
+									"type": "file",
+									"full": "framework/game/Player/Player.test.js"
+								}
+							]
+						}
+					]
 				},
 				{
 					"name": "lib",
@@ -1467,6 +1995,18 @@
 							"path": "framework/lib",
 							"type": "file",
 							"full": "framework/lib/is.js"
+						},
+						{
+							"name": "mixin.page.js",
+							"path": "framework/lib",
+							"type": "file",
+							"full": "framework/lib/mixin.page.js"
+						},
+						{
+							"name": "page.js",
+							"path": "framework/lib",
+							"type": "file",
+							"full": "framework/lib/page.js"
 						},
 						{
 							"name": "three.js",
@@ -1501,6 +2041,46 @@
 					"full": "framework/README.md"
 				},
 				{
+					"name": "ui",
+					"path": "framework",
+					"type": "dir",
+					"full": "framework/ui",
+					"children": [
+						{
+							"name": "icon",
+							"path": "framework/ui",
+							"type": "dir",
+							"full": "framework/ui/icon",
+							"children": [
+								{
+									"name": "icon.js",
+									"path": "framework/ui/icon",
+									"type": "file",
+									"full": "framework/ui/icon/icon.js"
+								},
+								{
+									"name": "icons.txt",
+									"path": "framework/ui/icon",
+									"type": "file",
+									"full": "framework/ui/icon/icons.txt"
+								},
+								{
+									"name": "page.js",
+									"path": "framework/ui/icon",
+									"type": "file",
+									"full": "framework/ui/icon/page.js"
+								}
+							]
+						},
+						{
+							"name": "ui.js",
+							"path": "framework/ui",
+							"type": "file",
+							"full": "framework/ui/ui.js"
+						}
+					]
+				},
+				{
 					"name": "ux",
 					"path": "framework",
 					"type": "dir",
@@ -1519,10 +2099,10 @@
 									"full": "framework/ux/Explorer/Explorer.js"
 								},
 								{
-									"name": "Explorer.page.js",
+									"name": "page.js",
 									"path": "framework/ux/Explorer",
 									"type": "file",
-									"full": "framework/ux/Explorer/Explorer.page.js"
+									"full": "framework/ux/Explorer/page.js"
 								}
 							]
 						},
