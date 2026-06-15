@@ -48,7 +48,7 @@ export default class Directory {
         return data.map(file => {
             const entry = {
                 name: file.name,
-                path: file.path.replace(/\\/g, '/').replace("public/", ''),
+                path: file.parentPath.replace(/\\/g, '/').replace("public/", ''),
                 type: file.isFile() ? "file" : "dir"
             };
             entry.full = path.join(entry.path, entry.name).replace(/\\/g, '/');

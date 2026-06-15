@@ -2871,6 +2871,13 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "ui",
+			"path": "./",
+			"type": "dir",
+			"full": "ui",
+			"children": []
 		}
 	]
 }
